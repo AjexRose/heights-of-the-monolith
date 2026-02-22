@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ConsumablesItemData" format=3 uid="uid://gkd2aohpiniy"]
+
+[ext_resource type="Texture2D" uid="uid://b0kuri4nfujhd" path="res://Textures/Items/Consumables/rmc_traumakit.png" id="1_7pbsq"]
+[ext_resource type="Script" uid="uid://blomh2foskhko" path="res://Scripts/Items/Consumables_Item_Data.gd" id="1_xgq5e"]
+
+[resource]
+script = ExtResource("1_xgq5e")
+Health_Restored = 2.0
+Display_Name = "Trauma Kit"
+Description = "Restores a small amount of health"
+Max_Stack_Size = 5
+Icon = ExtResource("1_7pbsq")
+metadata/_custom_type_script = "uid://blomh2foskhko"

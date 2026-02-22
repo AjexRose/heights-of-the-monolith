@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://blgyf8eupkbk8"]
+
+[ext_resource type="Script" uid="uid://biddc700w6ncm" path="res://Enemy.gd" id="1_5005p"]
+[ext_resource type="Texture2D" uid="uid://21rbasvy37nc" path="res://Textures/Enemies/test-enemy-RMC-PROTO.png" id="2_anj6l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trp07"]
+radius = 5.0
+
+[node name="TEST_Enemy" type="CharacterBody2D" unique_id=478468288]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_5005p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1657379906]
+scale = Vector2(-1, 1)
+texture = ExtResource("2_anj6l")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=921604685]
+shape = SubResource("CapsuleShape2D_trp07")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1281774461]

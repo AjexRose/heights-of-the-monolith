@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://duhyhnipmv7lq"]
+
+[ext_resource type="Script" uid="uid://oxq4kis2tao0" path="res://Scripts/Items/World_Item.gd" id="1_0ayrr"]
+[ext_resource type="Texture2D" uid="uid://bf146kj5fqd4j" path="res://Textures/Items/Extractables/rmc_weya_water.png" id="2_0oyto"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkv7o"]
+radius = 4.1231055
+
+[node name="WorldItem" type="Area2D" unique_id=173003202]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_0ayrr")
+
+[node name="ItemSprite" type="Sprite2D" parent="." unique_id=467209178]
+texture = ExtResource("2_0oyto")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622292450]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_qkv7o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ExtractablesItemData" format=3 uid="uid://v6x4p0iu670x"]
+
+[ext_resource type="Texture2D" uid="uid://bf146kj5fqd4j" path="res://Textures/Items/Extractables/rmc_weya_water.png" id="1_d0yjx"]
+[ext_resource type="Script" uid="uid://ddpjtbwb8daf3" path="res://Scripts/Items/Extractables_Item_Data.gd" id="1_slkkh"]
+
+[resource]
+script = ExtResource("1_slkkh")
+Chit_Value = 10.0
+Display_Name = "Clean Water"
+Description = "Water not tainted by disease or toxins. Rare but essential."
+Max_Stack_Size = 5
+Icon = ExtResource("1_d0yjx")
+metadata/_custom_type_script = "uid://ddpjtbwb8daf3"

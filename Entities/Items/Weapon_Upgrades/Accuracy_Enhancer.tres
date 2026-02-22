@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponUpgradeItemData" format=3 uid="uid://dogawsw5s1ktm"]
+
+[ext_resource type="Texture2D" uid="uid://brevi70o3vvwo" path="res://Textures/Items/WeaponUpgrades/rmc_reflex.png" id="1_6cbgx"]
+[ext_resource type="Script" uid="uid://df4jc2l54eebw" path="res://Scripts/Items/Weapon_Upgrades_Data.gd" id="1_ynk1x"]
+
+[resource]
+script = ExtResource("1_ynk1x")
+Fire_Degree_Offset_Min_Change = 0.15
+Fire_Degree_Offset_Max_Change = -0.15
+Display_Name = "Reflex Sight"
+Description = "Improves accuracy by a moderate amount"
+Icon = ExtResource("1_6cbgx")
+metadata/_custom_type_script = "uid://df4jc2l54eebw"

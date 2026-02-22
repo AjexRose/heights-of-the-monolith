@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ConsumablesItemData" format=3 uid="uid://ddc2fihnk0omw"]
+
+[ext_resource type="Script" uid="uid://blomh2foskhko" path="res://Scripts/Items/Consumables_Item_Data.gd" id="1_5gxhr"]
+[ext_resource type="Texture2D" uid="uid://cgri5ql6g1oy0" path="res://Textures/Items/Consumables/rmc_fusion_fuel_cell-full.png" id="1_b4gq4"]
+
+[resource]
+script = ExtResource("1_5gxhr")
+Shield_Restored = 1.0
+Display_Name = "Shield Changer"
+Description = "Restores a small amount of shield"
+Max_Stack_Size = 5
+Icon = ExtResource("1_b4gq4")
+metadata/_custom_type_script = "uid://blomh2foskhko"

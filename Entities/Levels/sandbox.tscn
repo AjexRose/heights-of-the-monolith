@@ -1,0 +1,65 @@
+[gd_scene format=4 uid="uid://dqn3n860on5w7"]
+
+[ext_resource type="PackedScene" uid="uid://bx3fnmitr1iig" path="res://Entities/Player/Player.tscn" id="1_cbjmm"]
+[ext_resource type="PackedScene" uid="uid://duhyhnipmv7lq" path="res://Entities/Items/world_item.tscn" id="2_1yne8"]
+[ext_resource type="Script" uid="uid://cm7smrxxas1sn" path="res://Scripts/Player/Camera.gd" id="2_qkv7o"]
+[ext_resource type="Texture2D" uid="uid://nt27hbnk7wrm" path="res://Textures/Environments/Sandbox/RMC-Hybrisa-Tiles.png" id="3_1yne8"]
+[ext_resource type="Resource" uid="uid://ddc2fihnk0omw" path="res://Entities/Items/Consumables/Shield_Charger.tres" id="3_5tydj"]
+[ext_resource type="PackedScene" uid="uid://blgyf8eupkbk8" path="res://Entities/Enemies/test_enemy.tscn" id="6_cvg44"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5tydj"]
+texture = ExtResource("3_1yne8")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+1:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+1:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+5:4/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qkv7o"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_5tydj")
+
+[node name="Sandbox" type="Node2D" unique_id=414318778]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=151484505]
+tile_map_data = PackedByteArray("AAD//wAAAQABAAEAAAD/////AQABAAEAAAAAAP//AQABAAEAAAABAP//AQABAAEAAAACAP//AQABAAEAAAADAP//AQABAAEAAAAEAP//AQABAAEAAAAFAP//AQABAAEAAAAFAAAAAQABAAEAAAAFAAEAAQABAAEAAAAFAAIAAQABAAEAAAAFAAMAAQABAAEAAAAFAAQAAQABAAEAAAAEAAQAAQABAAEAAAADAAQAAQABAAEAAAACAAQAAQABAAEAAAABAAQAAQABAAEAAAAAAAQAAQABAAEAAAD//wEAAQABAAEAAAD//wIAAQABAAEAAAD//wMAAQABAAEAAAD//wQAAQABAAEAAAAAAAMAAQABAAEAAAAAAAIAAQABAAEAAAAAAAEAAQABAAEAAAAAAAAAAQABAAEAAAABAAAAAQABAAEAAAABAAEAAQABAAEAAAABAAIAAQABAAEAAAABAAMAAQABAAEAAAACAAMAAQABAAEAAAACAAIAAQABAAEAAAACAAEAAQABAAEAAAACAAAAAQABAAEAAAADAAAAAQABAAEAAAADAAEAAQABAAEAAAADAAIAAQABAAEAAAADAAMAAQABAAEAAAAEAAMAAQABAAEAAAAEAAIAAQABAAEAAAAEAAEAAQABAAEAAAAEAAAAAQABAAEAAAD+////AQABAAEAAAD+/wAAAQABAAEAAAD+/wEAAQABAAEAAAD+/wIAAQABAAEAAAD+/wMAAQABAAEAAAD9/wMAAQABAAEAAAD9/wQAAQABAAEAAAD+/wQAAQABAAEAAAD9/wIAAQABAAEAAAD9/wEAAQABAAEAAAD9/wAAAQABAAEAAAD9////AQABAAEAAAD9/wUAAQABAAEAAAD+/wUAAQABAAEAAAD//wUAAQABAAEAAAAAAAUAAQABAAEAAAABAAUAAQABAAEAAAACAAUAAQABAAEAAAADAAUAAQABAAEAAAAEAAUAAQABAAEAAAAFAAUAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_qkv7o")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1778868636]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("2_qkv7o")
+
+[node name="Player" parent="." unique_id=2137229350 instance=ExtResource("1_cbjmm")]
+position = Vector2(68, 58)
+Bullet_Per_Shot = 3.0
+Fire_Degree_Offset_Min = 0.9
+Fire_Degree_Offset_Max = 1.1
+
+[node name="WorldItem" parent="." unique_id=173003202 instance=ExtResource("2_1yne8")]
+position = Vector2(14, 11)
+TESTITEM = ExtResource("3_5tydj")
+
+[node name="TEST_Enemy" parent="." unique_id=478468288 instance=ExtResource("6_cvg44")]
+position = Vector2(-78, 97)
