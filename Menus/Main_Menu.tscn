@@ -1,0 +1,338 @@
+[gd_scene format=3 uid="uid://wp40n50rh1x2"]
+
+[ext_resource type="Texture2D" uid="uid://c6thetrgvd12h" path="res://Textures/Menu/main_menu_art.png" id="1_3ch0s"]
+[ext_resource type="Script" uid="uid://bpydjmmk7876y" path="res://Scripts/UI/Game_Button.gd" id="1_g58hc"]
+[ext_resource type="Script" uid="uid://daxgytn0gb7tb" path="res://Scripts/Menus/Main_Menu.gd" id="1_pexlp"]
+[ext_resource type="Texture2D" uid="uid://uojg8f2ir81b" path="res://Textures/UI/PauseMenu/Pause-Menu-Button-Static.png" id="2_jca3q"]
+[ext_resource type="FontFile" uid="uid://cdpy3en31nuof" path="res://Font/Sevastopol-Interface.ttf" id="3_3ch0s"]
+[ext_resource type="Shader" uid="uid://ngnykembger7" path="res://Shaders/CRT-Scanline_Shader.gdshader" id="5_pexlp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1gd2q"]
+shader = ExtResource("5_pexlp")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 3.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.050000002375
+shader_parameter/noise_opacity = 0.150000007125
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.250000011875
+
+[sub_resource type="LabelSettings" id="LabelSettings_pexlp"]
+font = ExtResource("3_3ch0s")
+font_size = 24
+
+[node name="MainMenu" type="Control" unique_id=1137627554]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pexlp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1411603361]
+
+[node name="MainMenuArt" type="TextureRect" parent="CanvasLayer" unique_id=1101733054]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3ch0s")
+
+[node name="MainMenuShader" type="TextureRect" parent="CanvasLayer" unique_id=2006288410]
+material = SubResource("ShaderMaterial_1gd2q")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9989801, 1)
+texture = ExtResource("1_3ch0s")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1416181303]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=2059916540]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Play_BTN" type="BaseButton" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1687673174]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("1_g58hc")
+metadata/_custom_type_script = "uid://bpydjmmk7876y"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/Play_BTN" unique_id=1437374441]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.3999999, 1)
+texture = ExtResource("2_jca3q")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/Play_BTN" unique_id=2031237748]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 127.0
+offset_bottom = 32.0
+text = "START PROGRAM"
+label_settings = SubResource("LabelSettings_pexlp")
+
+[node name="Settings_BTN" type="BaseButton" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1998590172]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("1_g58hc")
+metadata/_custom_type_script = "uid://bpydjmmk7876y"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/Settings_BTN" unique_id=85321874]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.3999999, 1)
+texture = ExtResource("2_jca3q")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/Settings_BTN" unique_id=1587375511]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 127.0
+offset_bottom = 32.0
+text = "MODIFY PROGRAM"
+label_settings = SubResource("LabelSettings_pexlp")
+
+[node name="Quit_BUN" type="BaseButton" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=65014105]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("1_g58hc")
+metadata/_custom_type_script = "uid://bpydjmmk7876y"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/Quit_BUN" unique_id=308108226]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.3999999, 1)
+texture = ExtResource("2_jca3q")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/Quit_BUN" unique_id=922317958]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 127.0
+offset_bottom = 32.0
+text = "QUIT PROGRAM"
+label_settings = SubResource("LabelSettings_pexlp")
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Play_BTN" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Settings_BTN" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Quit_BUN" to="." method="_on_quit_bun_pressed"]

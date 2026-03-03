@@ -8,6 +8,8 @@ extends Panel
 @onready var info_panel : Panel = $"../Item_Info_Panel"
 @onready var info_panel_name : Label = $"../Item_Info_Panel/Item_Name"
 @onready var info_panel_description : Label = $"../Item_Info_Panel/Item_Description"
+@onready var info_panel_chit_value : Label = $"../Item_Info_Panel/Item_Chit_Value"
+@onready var info_panel_chit_value_total: Label = $"../Item_Info_Panel/Item_Chit_Value_Total"
 
 func _ready () : 
 	inventory.UpdatedInventory.connect(_update_ui)
@@ -39,6 +41,6 @@ func _set_info_panel (slot : InventorySlotUI):
 	info_panel.visible = true
 	info_panel_name.text = item.Display_Name
 	info_panel_description.text = item.Description
-
+	
 func _hide_info_panel ():
 	info_panel.visible = false

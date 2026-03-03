@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvjvvyvmcvarf"
-path="res://.godot/imported/Inventory_Slot.png-a72dcc9921ee3fd7673d8a7f6d9b10e3.ctex"
+uid="uid://dew6heplknr6y"
+path="res://.godot/imported/Monolith-SP-Bar-Container.png-c086011d9d0624cb07cef8554d855021.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/Inventory/Inventory_Slot.png"
-dest_files=["res://.godot/imported/Inventory_Slot.png-a72dcc9921ee3fd7673d8a7f6d9b10e3.ctex"]
+source_file="res://Textures/UI/HUD/ShieldPointBar/Monolith-SP-Bar-Container.png"
+dest_files=["res://.godot/imported/Monolith-SP-Bar-Container.png-c086011d9d0624cb07cef8554d855021.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1

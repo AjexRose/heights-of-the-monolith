@@ -64,9 +64,10 @@ func remove_item_from_slot (Slot : ItemSlot):
 	UpdatedSlot.emit(Slot)
 
 #retruns an item slot containing the specific item for stacking items
-func get_item_slot (Item : BaseItemData) -> ItemSlot:
+func get_item_slot(Item: BaseItemData) -> ItemSlot:
 	for Slot in Item_Slots:
-		if Slot.Item == Item:
+		# Check if it's the right item AND if it's not full
+		if Slot.Item == Item and Slot.quantity < Item.Max_Stack_Size:
 			return Slot
 
 	return null

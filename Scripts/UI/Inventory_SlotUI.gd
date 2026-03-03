@@ -37,5 +37,5 @@ func _on_pressed ():
 	if not item_slot or not item_slot.item:
 		return
 	
-	#pass
+	pass
 	#click on the item - trigger it's effect

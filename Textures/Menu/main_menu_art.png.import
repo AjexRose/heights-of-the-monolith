@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvjvvyvmcvarf"
-path="res://.godot/imported/Inventory_Slot.png-a72dcc9921ee3fd7673d8a7f6d9b10e3.ctex"
+uid="uid://c6thetrgvd12h"
+path="res://.godot/imported/main_menu_art.png-bbe3d356c88bb077a743634458a8c443.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/Inventory/Inventory_Slot.png"
-dest_files=["res://.godot/imported/Inventory_Slot.png-a72dcc9921ee3fd7673d8a7f6d9b10e3.ctex"]
+source_file="res://Textures/Menu/main_menu_art.png"
+dest_files=["res://.godot/imported/main_menu_art.png-bbe3d356c88bb077a743634458a8c443.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1

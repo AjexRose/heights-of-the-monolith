@@ -4,8 +4,6 @@ extends Area2D
 @export var Projectile_Damage : int = 1
 var Owner_Character : CharacterBody2D
 
-
-
 func _process(delta):
 	translate (-transform.y * Projectile_Speed * delta)
 

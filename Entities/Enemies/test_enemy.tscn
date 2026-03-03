@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blgyf8eupkbk8"]
 
-[ext_resource type="Script" uid="uid://biddc700w6ncm" path="res://Enemy.gd" id="1_5005p"]
+[ext_resource type="Script" uid="uid://biddc700w6ncm" path="res://Scripts/Enemies/Enemy.gd" id="1_5005p"]
 [ext_resource type="Texture2D" uid="uid://21rbasvy37nc" path="res://Textures/Enemies/test-enemy-RMC-PROTO.png" id="2_anj6l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trp07"]
@@ -12,6 +12,7 @@ collision_mask = 9
 script = ExtResource("1_5005p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1657379906]
+light_mask = 4
 scale = Vector2(-1, 1)
 texture = ExtResource("2_anj6l")
 region_enabled = true

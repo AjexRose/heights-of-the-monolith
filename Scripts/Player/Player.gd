@@ -38,6 +38,16 @@ var Bullet_Amount: float = 6
 @onready var Player_Inventory_HUD : Panel = $HUD/Inventory
 @onready var Audio_Player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var Shoot_Audio = preload ("res://Audio/PROTO_gunshot.wav")
+#HUD Controllers
+@onready var HitPointBar : TextureProgressBar = $HUD/HealthPointBar
+@onready var ShieldPointBar : TextureProgressBar = $HUD/ShieldPointBar
+#Menu Controllers
+@onready var GameMenu = $HUD/GameMenu
+@onready var IsPaused : bool = false
+
+func _ready():
+	GlobalSignals.GameMenu_Resumed.connect(_Toggle_Game_Menu)
+	GameMenu.hide
 
 func _physics_process(delta):
 	var move_input: Vector2 = Input.get_vector("Move_Left","Move_Right","Move_Up","Move_Down")
@@ -56,6 +66,11 @@ func _process(delta):
 	$Reload_ProgressBar.max_value = $Weapon/Reload_Timer.wait_time
 	$Reload_ProgressBar.value = $Weapon/Reload_Timer.wait_time - $Weapon/Reload_Timer.time_left
 	
+	$HUD/HealthPointBar.max_value = Max_Health
+	$HUD/HealthPointBar.value = Current_Health
+	$HUD/ShieldPointBar.max_value = Max_Shield
+	$HUD/ShieldPointBar.value = Current_Shield
+	
 	if Bullet_Amount == 0:
 		_Reload_Gun_Auto()
 	
@@ -67,9 +82,11 @@ func _process(delta):
 		print(Bullet_Amount)
 	if Input.is_action_just_pressed("Interact_Inventory"):
 		_Show_Inventory()
+	if Input.is_action_just_pressed("Toggle_Game_Menu"):
+		_Toggle_Game_Menu()
 
 func _Shoot():
-	if Can_Fire == true:
+	if Can_Fire == true && IsPaused == false:
 		for i in range(Bullet_Per_Shot):
 			Last_Shoot_Time = Time.get_unix_time_from_system()
 	
@@ -116,6 +133,22 @@ func _Show_Inventory():
 	else:
 		$HUD/Inventory.visible = false
 
+func _Toggle_Game_Menu():
+	IsPaused = !IsPaused
+	
+	if IsPaused: #turns on PauseMenu
+		GameMenu.show()
+		HitPointBar.hide()
+		ShieldPointBar.hide()
+		get_tree().paused
+		print("paused")
+	else: #Turns it off
+		!get_tree().paused
+		GameMenu.hide()
+		HitPointBar.show()
+		ShieldPointBar.show()
+		print("unpaused")
+	
+
 func take_damage (amount: float):
 	pass
-	

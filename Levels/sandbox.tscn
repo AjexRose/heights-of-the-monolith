@@ -1,11 +1,10 @@
 [gd_scene format=4 uid="uid://dqn3n860on5w7"]
 
 [ext_resource type="PackedScene" uid="uid://bx3fnmitr1iig" path="res://Entities/Player/Player.tscn" id="1_cbjmm"]
-[ext_resource type="PackedScene" uid="uid://duhyhnipmv7lq" path="res://Entities/Items/world_item.tscn" id="2_1yne8"]
 [ext_resource type="Script" uid="uid://cm7smrxxas1sn" path="res://Scripts/Player/Camera.gd" id="2_qkv7o"]
 [ext_resource type="Texture2D" uid="uid://nt27hbnk7wrm" path="res://Textures/Environments/Sandbox/RMC-Hybrisa-Tiles.png" id="3_1yne8"]
-[ext_resource type="Resource" uid="uid://ddc2fihnk0omw" path="res://Entities/Items/Consumables/Shield_Charger.tres" id="3_5tydj"]
 [ext_resource type="PackedScene" uid="uid://blgyf8eupkbk8" path="res://Entities/Enemies/test_enemy.tscn" id="6_cvg44"]
+[ext_resource type="PackedScene" uid="uid://c2sky025khm74" path="res://Entities/Damagables/damagable_crate.tscn" id="7_3es3c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5tydj"]
 texture = ExtResource("3_1yne8")
@@ -53,13 +52,25 @@ script = ExtResource("2_qkv7o")
 
 [node name="Player" parent="." unique_id=2137229350 instance=ExtResource("1_cbjmm")]
 position = Vector2(68, 58)
-Bullet_Per_Shot = 3.0
+scale = Vector2(0.9977765, 0.9791667)
 Fire_Degree_Offset_Min = 0.9
 Fire_Degree_Offset_Max = 1.1
 
-[node name="WorldItem" parent="." unique_id=173003202 instance=ExtResource("2_1yne8")]
-position = Vector2(14, 11)
-TESTITEM = ExtResource("3_5tydj")
-
 [node name="TEST_Enemy" parent="." unique_id=478468288 instance=ExtResource("6_cvg44")]
 position = Vector2(-78, 97)
+
+[node name="Damagable_Crate" parent="." unique_id=1484211338 instance=ExtResource("7_3es3c")]
+position = Vector2(144, -16)
+
+[node name="Damagable_Crate2" parent="." unique_id=278447408 instance=ExtResource("7_3es3c")]
+position = Vector2(144, 20)
+
+[node name="Damagable_Crate3" parent="." unique_id=846512248 instance=ExtResource("7_3es3c")]
+position = Vector2(145, 57)
+
+[node name="Damagable_Crate4" parent="." unique_id=663854968 instance=ExtResource("7_3es3c")]
+position = Vector2(145, 91)
+
+[node name="Damagable_Crate5" parent="." unique_id=600275063 instance=ExtResource("7_3es3c")]
+position = Vector2(144, 123)
+scale = Vector2(1.024125, 1)

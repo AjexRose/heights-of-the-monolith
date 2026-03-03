@@ -10,7 +10,16 @@
 [ext_resource type="Script" uid="uid://6qme0hbchi5s" path="res://Scripts/UI/InventoryUI.gd" id="8_761t5"]
 [ext_resource type="Resource" uid="uid://v6x4p0iu670x" path="res://Entities/Items/Extractables/Fresh_Water.tres" id="8_hacra"]
 [ext_resource type="PackedScene" uid="uid://vyv6finq1mq0" path="res://Entities/UI/Inventory/inventory_slot.tscn" id="8_x44r4"]
+[ext_resource type="Shader" uid="uid://ngnykembger7" path="res://Shaders/CRT-Scanline_Shader.gdshader" id="10_vcmon"]
 [ext_resource type="FontFile" uid="uid://cdpy3en31nuof" path="res://Font/Sevastopol-Interface.ttf" id="11_jynvv"]
+[ext_resource type="Texture2D" uid="uid://drxs75tuqxydh" path="res://Textures/UI/HUD/HealthPointBar/Monolith-HP-Bar-Container.png" id="12_061yh"]
+[ext_resource type="Texture2D" uid="uid://k0nw1wpujwki" path="res://Textures/UI/HUD/HealthPointBar/Monolith-HP-Bar-Fill.png" id="13_uw7o4"]
+[ext_resource type="Texture2D" uid="uid://dew6heplknr6y" path="res://Textures/UI/HUD/ShieldPointBar/Monolith-SP-Bar-Container.png" id="14_gallu"]
+[ext_resource type="Texture2D" uid="uid://cssjx8u2rvmxl" path="res://Textures/UI/HUD/ShieldPointBar/Monolith-SP-Bar-Fill.png" id="15_samso"]
+[ext_resource type="Texture2D" uid="uid://cvjvvyvmcvarf" path="res://Textures/UI/Inventory/Inventory_Slot.png" id="16_5m37j"]
+[ext_resource type="Script" uid="uid://dkao6ctpvxsj7" path="res://Scripts/Menus/GameMenu.gd" id="16_e34i1"]
+[ext_resource type="Script" uid="uid://bpydjmmk7876y" path="res://Scripts/UI/Game_Button.gd" id="17_e34i1"]
+[ext_resource type="Texture2D" uid="uid://uojg8f2ir81b" path="res://Textures/UI/PauseMenu/Pause-Menu-Button-Static.png" id="18_vcmon"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t38ms"]
 radius = 5.0
@@ -22,6 +31,36 @@ corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an6q6"]
 bg_color = Color(0.827451, 0.7176471, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6pxy"]
+shader = ExtResource("10_vcmon")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.082000003895
+shader_parameter/scanlines_width = 0.250000011875
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 3.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.0130000006175
+shader_parameter/noise_opacity = 0.10000000475
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.5
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_h6pxy"]
+font = ExtResource("11_jynvv")
+font_size = 24
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_761t5"]
 bg_color = Color(0.03529412, 0.22352941, 0.23137255, 1)
@@ -94,6 +133,298 @@ ExtResource("8_hacra"): 2
 })
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=233563043]
+
+[node name="GameMenu" type="CanvasLayer" parent="HUD" unique_id=625072841]
+process_mode = 3
+script = ExtResource("16_e34i1")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameMenu" unique_id=90558500]
+material = SubResource("ShaderMaterial_h6pxy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.5931396
+offset_bottom = 4.7216797
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.99862134, 0.9927662)
+texture = ExtResource("16_5m37j")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/GameMenu" unique_id=1984737778]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -100.69951
+offset_right = 75.0
+offset_bottom = 99.300476
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/GameMenu/MarginContainer" unique_id=262254556]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ResumeBTN" type="BaseButton" parent="HUD/GameMenu/MarginContainer/VBoxContainer" unique_id=325319223]
+unique_name_in_owner = false
+process_mode = 3
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("17_e34i1")
+metadata/_custom_type_script = "uid://bpydjmmk7876y"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameMenu/MarginContainer/VBoxContainer/ResumeBTN" unique_id=1823185643]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_vcmon")
+
+[node name="Label" type="Label" parent="HUD/GameMenu/MarginContainer/VBoxContainer/ResumeBTN" unique_id=455156674]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 109.0
+offset_bottom = 35.0
+text = "RESUME GAME"
+label_settings = SubResource("LabelSettings_h6pxy")
+
+[node name="SettingsBTN" type="BaseButton" parent="HUD/GameMenu/MarginContainer/VBoxContainer" unique_id=462127156]
+unique_name_in_owner = false
+process_mode = 3
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("17_e34i1")
+metadata/_custom_type_script = "uid://bpydjmmk7876y"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameMenu/MarginContainer/VBoxContainer/SettingsBTN" unique_id=1479168278]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_vcmon")
+
+[node name="Label" type="Label" parent="HUD/GameMenu/MarginContainer/VBoxContainer/SettingsBTN" unique_id=2138708970]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 109.0
+offset_bottom = 35.0
+scale = Vector2(1.0053033, 1.0740225)
+text = "SETTINGS
+"
+label_settings = SubResource("LabelSettings_h6pxy")
+
+[node name="QuitBTN" type="BaseButton" parent="HUD/GameMenu/MarginContainer/VBoxContainer" unique_id=1989744480]
+unique_name_in_owner = false
+process_mode = 3
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("17_e34i1")
+metadata/_custom_type_script = "uid://bpydjmmk7876y"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameMenu/MarginContainer/VBoxContainer/QuitBTN" unique_id=1667979349]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_vcmon")
+
+[node name="Label" type="Label" parent="HUD/GameMenu/MarginContainer/VBoxContainer/QuitBTN" unique_id=2067809844]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 109.0
+offset_bottom = 35.0
+scale = Vector2(1.0053033, 1.0740225)
+text = "QUIT GAME"
+label_settings = SubResource("LabelSettings_h6pxy")
 
 [node name="Inventory" type="Panel" parent="HUD" unique_id=474662874 node_paths=PackedStringArray("slots")]
 visible = false
@@ -185,14 +516,72 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -33.0
-offset_bottom = 57.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Testing Testing 1-2-3, just seeing how silly we can get with the text here and how much we can type out before we reach the limit. Wow this is so exciting, I can fit a lot here, really exciting stuff... Z just so it doesnt feel left out."
+text = "Testing Testing 1-2-3, just seeing how silly we can get with the text here and how much we can type out before we reach the limit. Wow this is so exciting, I can fit a lot"
 label_settings = SubResource("LabelSettings_uw7o4")
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="Item_Chit_Value" type="Label" parent="HUD/Item_Info_Panel" unique_id=91733979]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = 36.0
+offset_right = -195.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Individual Chit Price
+"
+label_settings = SubResource("LabelSettings_uw7o4")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Item_Chit_Value_Total" type="Label" parent="HUD/Item_Info_Panel" unique_id=1146760643]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 194.0
+offset_top = 40.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Group Chit Price
+"
+label_settings = SubResource("LabelSettings_uw7o4")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HealthPointBar" type="TextureProgressBar" parent="HUD" unique_id=924067371]
+offset_right = 303.0
+offset_bottom = 53.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("12_061yh")
+texture_progress = ExtResource("13_uw7o4")
+
+[node name="ShieldPointBar" type="TextureProgressBar" parent="HUD" unique_id=1955223564]
+offset_left = 2.0
+offset_top = 53.0
+offset_right = 305.0
+offset_bottom = 106.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("14_gallu")
+texture_progress = ExtResource("15_samso")
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=593500228]
 
 [connection signal="timeout" from="Weapon/Reload_Timer" to="." method="_on_reload_timer_timeout"]
+[connection signal="pressed" from="HUD/GameMenu/MarginContainer/VBoxContainer/ResumeBTN" to="HUD/GameMenu" method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="HUD/GameMenu/MarginContainer/VBoxContainer/SettingsBTN" to="HUD/GameMenu" method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="HUD/GameMenu/MarginContainer/VBoxContainer/QuitBTN" to="HUD/GameMenu" method="_on_quit_btn_pressed"]

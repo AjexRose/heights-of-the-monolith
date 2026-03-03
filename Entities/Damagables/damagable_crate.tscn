@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c2sky025khm74"]
+
+[ext_resource type="Script" uid="uid://rmjjafkpwwvv" path="res://Scripts/Damagables/Base_Damagables.gd" id="1_c6bvj"]
+[ext_resource type="Texture2D" uid="uid://bereb4v7i0p4u" path="res://Textures/Damagables/secure-merc_crate_frontier.png" id="1_vqedx"]
+[ext_resource type="Script" uid="uid://hdr2k4iyocwq" path="res://Scripts/Items/Base_Item_Data.gd" id="2_4d17q"]
+[ext_resource type="Resource" uid="uid://gkd2aohpiniy" path="res://Entities/Items/Consumables/First_Aid_Kit_1.tres" id="3_ypoc1"]
+[ext_resource type="Resource" uid="uid://ddc2fihnk0omw" path="res://Entities/Items/Consumables/Shield_Charger.tres" id="4_s831s"]
+[ext_resource type="Resource" uid="uid://dogawsw5s1ktm" path="res://Entities/Items/Weapon_Upgrades/Accuracy_Enhancer.tres" id="5_eptcj"]
+[ext_resource type="Resource" uid="uid://v6x4p0iu670x" path="res://Entities/Items/Extractables/Fresh_Water.tres" id="6_eelra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6bvj"]
+radius = 15.0
+
+[node name="Damagable_Crate" type="CharacterBody2D" unique_id=1484211338]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_c6bvj")
+Can_Drop_Items = true
+Max_Item_Drops = 1
+Drop_Pool = Dictionary[ExtResource("2_4d17q"), int]({
+ExtResource("3_ypoc1"): 2,
+ExtResource("4_s831s"): 5,
+ExtResource("5_eptcj"): 1,
+ExtResource("6_eelra"): 3
+})
+
+[node name="Damagable_Crate_Icon" type="Sprite2D" parent="." unique_id=964052629]
+visibility_layer = 4
+texture = ExtResource("1_vqedx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=868959435]
+position = Vector2(0, 6)
+scale = Vector2(1.0265306, 1)
+shape = SubResource("CircleShape2D_c6bvj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2120237326]

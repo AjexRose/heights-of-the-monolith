@@ -8,11 +8,6 @@ var Item : BaseItemData
 var Bob_Speed : float = 4
 var Bob_Amount : float = 2
 
-@export var TESTITEM : BaseItemData
-
-func _ready():
-	set_item(TESTITEM)
-
 func _process (delta : float):
 	#Item Bobbing up and down
 	var Time : float = Time.get_unix_time_from_system()
@@ -21,7 +16,7 @@ func _process (delta : float):
 
 func set_item (Item: BaseItemData):
 	self.Item = Item
-	ItemSprite.texture = Item.Icon
+	$ItemSprite.texture = Item.Icon
 
 func _on_body_entered(body):
 	if not body.is_in_group("Player"):

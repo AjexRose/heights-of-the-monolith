@@ -37,10 +37,16 @@ func take_damage (amount : int):
 	Current_HP -= amount
 	Audio_Player.stream = Damage_Audio
 	Audio_Player.play()
+	damage_flash()
 	
 	if Current_HP <= 0:
 		die()
-	
+
+func damage_flash():
+	Enemy_Sprite.modulate = Color.DARK_RED
+	await get_tree().create_timer(0.1).timeout
+	Enemy_Sprite.modulate = Color.WHITE
+
 func die ():
 	Audio_Player.stream = Death_Audio
 	Audio_Player.play()
