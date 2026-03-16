@@ -38,9 +38,14 @@ func _set_info_panel (slot : InventorySlotUI):
 	if not item:
 		return
 	
+	var itemquantity = slot.item_slot.quantity
+	var chittotal = item.Chit_Value * itemquantity
+	
 	info_panel.visible = true
 	info_panel_name.text = item.Display_Name
 	info_panel_description.text = item.Description
+	info_panel_chit_value.text = "%d chits ea." % item.Chit_Value
+	info_panel_chit_value_total.text = "%d chits ttl" % chittotal
 	
 func _hide_info_panel ():
 	info_panel.visible = false

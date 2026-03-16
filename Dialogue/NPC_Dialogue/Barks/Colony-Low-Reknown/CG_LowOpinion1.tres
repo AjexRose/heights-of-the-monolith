@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueBark" format=3 uid="uid://bo8kscqm3g276"]
+
+[ext_resource type="Script" uid="uid://cfkgyopn0d1w1" path="res://Dialogue/DialogueBark.gd" id="1_p850u"]
+
+[resource]
+script = ExtResource("1_p850u")
+barker_name = "Colonial Guard"
+lines = Array[String](["Oh god it's that weirdo..."])
+metadata/_custom_type_script = "uid://cfkgyopn0d1w1"

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://fk68jst7swg6"]
+
+[ext_resource type="Texture2D" uid="uid://djo8yf7t4cjd3" path="res://Textures/NPC/Generics/PROTO-colonial-guard.png" id="1_2gw7h"]
+[ext_resource type="Script" uid="uid://h3k45enufjkk" path="res://Dialogue/Dialogue_NPC.gd" id="1_f6vc3"]
+[ext_resource type="Script" uid="uid://kqasec2dkise" path="res://Scripts/Generics/Generic_Interactable.gd" id="2_f6vc3"]
+[ext_resource type="Resource" uid="uid://ds6b2dgowmpj7" path="res://Dialogue/NPC_Dialogue/Colonial-Guard/First-Meeting.tres" id="4_bcd5v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bcd5v"]
+radius = 21.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30gpg"]
+
+[node name="ColonialGuardNpc" type="CharacterBody2D" unique_id=1973425761]
+
+[node name="DialogueManager" type="Node2D" parent="." unique_id=1134248592]
+script = ExtResource("1_f6vc3")
+dialogue = ExtResource("4_bcd5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=979863567]
+texture = ExtResource("1_2gw7h")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=863493751]
+script = ExtResource("2_f6vc3")
+prompt = "Talk"
+single_use = true
+
+[node name="InteractRange" type="CollisionShape2D" parent="InteractionArea" unique_id=2112734459]
+shape = SubResource("CircleShape2D_bcd5v")
+
+[node name="Collider_Shape" type="CollisionShape2D" parent="." unique_id=462520784]
+shape = SubResource("CapsuleShape2D_30gpg")
+
+[node name="PromptLocation" type="Marker2D" parent="." unique_id=673155422]
+position = Vector2(0, 20)

@@ -10,8 +10,12 @@
 [ext_resource type="Script" uid="uid://6qme0hbchi5s" path="res://Scripts/UI/InventoryUI.gd" id="8_761t5"]
 [ext_resource type="Resource" uid="uid://v6x4p0iu670x" path="res://Entities/Items/Extractables/Fresh_Water.tres" id="8_hacra"]
 [ext_resource type="PackedScene" uid="uid://vyv6finq1mq0" path="res://Entities/UI/Inventory/inventory_slot.tscn" id="8_x44r4"]
+[ext_resource type="Resource" uid="uid://ddc2fihnk0omw" path="res://Entities/Items/Consumables/Shield_Charger.tres" id="9_h03de"]
+[ext_resource type="Script" uid="uid://cgrlbmow8271o" path="res://Dialogue/DialogueController.gd" id="9_l2mqv"]
+[ext_resource type="Script" uid="uid://fwscem5ajjs7" path="res://Dialogue/DialogueBarkController.gd" id="10_80tt4"]
 [ext_resource type="Shader" uid="uid://ngnykembger7" path="res://Shaders/CRT-Scanline_Shader.gdshader" id="10_vcmon"]
 [ext_resource type="FontFile" uid="uid://cdpy3en31nuof" path="res://Font/Sevastopol-Interface.ttf" id="11_jynvv"]
+[ext_resource type="Script" uid="uid://c5eeq21mnobxc" path="res://Scripts/Player/HealthController.gd" id="11_tepoh"]
 [ext_resource type="Texture2D" uid="uid://drxs75tuqxydh" path="res://Textures/UI/HUD/HealthPointBar/Monolith-HP-Bar-Container.png" id="12_061yh"]
 [ext_resource type="Texture2D" uid="uid://k0nw1wpujwki" path="res://Textures/UI/HUD/HealthPointBar/Monolith-HP-Bar-Fill.png" id="13_uw7o4"]
 [ext_resource type="Texture2D" uid="uid://dew6heplknr6y" path="res://Textures/UI/HUD/ShieldPointBar/Monolith-SP-Bar-Container.png" id="14_gallu"]
@@ -20,6 +24,9 @@
 [ext_resource type="Script" uid="uid://dkao6ctpvxsj7" path="res://Scripts/Menus/GameMenu.gd" id="16_e34i1"]
 [ext_resource type="Script" uid="uid://bpydjmmk7876y" path="res://Scripts/UI/Game_Button.gd" id="17_e34i1"]
 [ext_resource type="Texture2D" uid="uid://uojg8f2ir81b" path="res://Textures/UI/PauseMenu/Pause-Menu-Button-Static.png" id="18_vcmon"]
+[ext_resource type="Script" uid="uid://55lyo0d6dmkm" path="res://Scripts/Player/Interaction_Controller.gd" id="21_h6pxy"]
+[ext_resource type="Texture2D" uid="uid://djo8yf7t4cjd3" path="res://Textures/NPC/Generics/PROTO-colonial-guard.png" id="22_mgqku"]
+[ext_resource type="Script" uid="uid://dka3a6vthebm8" path="res://Scripts/Player/DodgeController.gd" id="24_mgqku"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t38ms"]
 radius = 5.0
@@ -31,6 +38,34 @@ corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an6q6"]
 bg_color = Color(0.827451, 0.7176471, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgqku"]
+bg_color = Color(0.09411765, 0.09411765, 0.09411765, 0.39215687)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80tt4"]
+bg_color = Color(0.35853103, 0.6514033, 0.7107514, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tepoh"]
+bg_color = Color(0.09411765, 0.09411765, 0.09411765, 0.39215687)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h03de"]
+bg_color = Color(0.35686275, 0.6509804, 0.70980394, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6pxy"]
 shader = ExtResource("10_vcmon")
@@ -79,6 +114,60 @@ font = ExtResource("11_jynvv")
 font_size = 20
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcmon"]
+font = ExtResource("11_jynvv")
+font_size = 32
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6pxy"]
+bg_color = Color(0, 0, 0, 0.27058825)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l80rc"]
+bg_color = Color(0.2504458, 0.3379518, 0.37082028, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2mqv"]
+bg_color = Color(0.44123036, 0.5596433, 0.6030112, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_80tt4"]
+font = ExtResource("11_jynvv")
+font_size = 60
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tepoh"]
+font = ExtResource("11_jynvv")
+font_size = 40
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h03de"]
+font = ExtResource("11_jynvv")
+font_size = 40
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewrch"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8qxc"]
+bg_color = Color(0, 0, 0, 0.35686275)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ewrch"]
+font = ExtResource("11_jynvv")
+font_size = 24
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e8qxc"]
+font = ExtResource("11_jynvv")
+font_size = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6pxy"]
+radius = 18.027756
 
 [node name="Player" type="CharacterBody2D" unique_id=2137229350 groups=["Player"]]
 collision_layer = 2
@@ -129,13 +218,53 @@ one_shot = true
 script = ExtResource("5_an6q6")
 Start_Items = Dictionary[ExtResource("6_hj1c0"), int]({
 ExtResource("7_x44r4"): 2,
-ExtResource("8_hacra"): 2
+ExtResource("8_hacra"): 2,
+ExtResource("9_h03de"): 2
 })
+
+[node name="DialogueController" type="Node2D" parent="." unique_id=1577743358]
+script = ExtResource("9_l2mqv")
+
+[node name="DialogueBarkController" type="Node2D" parent="." unique_id=594873441]
+script = ExtResource("10_80tt4")
+
+[node name="HealthController" type="Node2D" parent="." unique_id=1908925557]
+script = ExtResource("11_tepoh")
+
+[node name="ShieldBreakImmuneTimer" type="Timer" parent="HealthController" unique_id=357652641]
+
+[node name="DodgeController" type="Node2D" parent="." unique_id=633464202]
+script = ExtResource("24_mgqku")
+
+[node name="InDodge_ProgressBar" type="ProgressBar" parent="DodgeController" unique_id=956214383]
+visible = false
+offset_left = -17.0
+offset_top = 19.0
+offset_right = 20.0
+offset_bottom = 23.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mgqku")
+theme_override_styles/fill = SubResource("StyleBoxFlat_80tt4")
+show_percentage = false
+
+[node name="In_Dodge_Timer" type="Timer" parent="DodgeController/InDodge_ProgressBar" unique_id=1870931277]
+
+[node name="DodgeRecharge_ProgressBar" type="ProgressBar" parent="DodgeController" unique_id=316481571]
+visible = false
+offset_left = -17.0
+offset_top = 19.0
+offset_right = 20.0
+offset_bottom = 23.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tepoh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_h03de")
+show_percentage = false
+
+[node name="Dodge_Recharge_Timer" type="Timer" parent="DodgeController/DodgeRecharge_ProgressBar" unique_id=2029261679]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=233563043]
 
 [node name="GameMenu" type="CanvasLayer" parent="HUD" unique_id=625072841]
 process_mode = 3
+visible = false
 script = ExtResource("16_e34i1")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/GameMenu" unique_id=90558500]
@@ -579,9 +708,182 @@ nine_patch_stretch = true
 texture_under = ExtResource("14_gallu")
 texture_progress = ExtResource("15_samso")
 
+[node name="InteractPrompt" type="Label" parent="HUD" unique_id=346178875]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -15.0
+offset_right = 51.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_vcmon")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogueScreen" type="Panel" parent="HUD" unique_id=1500554935]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h6pxy")
+
+[node name="DialoguePanel" type="Panel" parent="HUD/DialogueScreen" unique_id=709252997]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -377.0
+offset_right = 400.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l80rc")
+
+[node name="DialogueBG" type="Panel" parent="HUD/DialogueScreen/DialoguePanel" unique_id=53752032]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -165.0
+offset_right = 390.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l2mqv")
+
+[node name="NPCIcon" type="TextureRect" parent="HUD/DialogueScreen/DialoguePanel" unique_id=502172758]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 303.0
+offset_bottom = 340.0
+texture = ExtResource("22_mgqku")
+stretch_mode = 4
+
+[node name="NPCName" type="Label" parent="HUD/DialogueScreen/DialoguePanel" unique_id=340336706]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 19.0
+offset_right = 375.0
+offset_bottom = 76.0
+grow_horizontal = 2
+text = "NPC-NAME"
+label_settings = SubResource("LabelSettings_80tt4")
+
+[node name="NPCTitle" type="Label" parent="HUD/DialogueScreen/DialoguePanel" unique_id=1918547649]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 68.0
+offset_right = 374.0
+offset_bottom = 106.0
+grow_horizontal = 2
+text = "NPC-TITLE"
+label_settings = SubResource("LabelSettings_tepoh")
+
+[node name="NPCDialogue" type="Label" parent="HUD/DialogueScreen/DialoguePanel" unique_id=548138923]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 136.0
+offset_right = 384.0
+offset_bottom = 326.0
+grow_horizontal = 2
+text = "NPC-TITLE DIALOGUE TEXT THAT LETS ME SEE WHAT CAN BE DONE. BEEP BEEP BEEBUS BEEB BAMBUS"
+label_settings = SubResource("LabelSettings_h03de")
+autowrap_mode = 2
+
+[node name="DialogueBarkScreen" type="Panel" parent="HUD" unique_id=211243847]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -77.5
+offset_right = 87.5
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ewrch")
+
+[node name="DialogueBarkPanel_BG" type="Panel" parent="HUD/DialogueBarkScreen" unique_id=2127866789]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -73.5
+offset_right = 82.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e8qxc")
+
+[node name="BarkerTitle" type="Label" parent="HUD/DialogueBarkScreen/DialogueBarkPanel_BG" unique_id=551538543]
+layout_mode = 1
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 168.0
+offset_bottom = 21.0
+text = "BARKER TITLE"
+label_settings = SubResource("LabelSettings_ewrch")
+autowrap_mode = 2
+
+[node name="BarkerText" type="Label" parent="HUD/DialogueBarkScreen/DialogueBarkPanel_BG" unique_id=835382120]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 162.0
+offset_bottom = 82.5
+text = "BARKBARKBARK
+WOOFWOOFWOOFWOOFWOOFWOOFWOOFWOOF"
+label_settings = SubResource("LabelSettings_e8qxc")
+autowrap_mode = 3
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=593500228]
 
+[node name="InteractionController" type="Area2D" parent="." unique_id=1772205095]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("21_h6pxy")
+
+[node name="InteractionControllerRange" type="CollisionShape2D" parent="InteractionController" unique_id=1799023733]
+shape = SubResource("CircleShape2D_h6pxy")
+
+[node name="CheckTimer" type="Timer" parent="InteractionController" unique_id=1380500924]
+wait_time = 0.1
+autostart = true
+
 [connection signal="timeout" from="Weapon/Reload_Timer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="DodgeController/InDodge_ProgressBar/In_Dodge_Timer" to="DodgeController" method="_dodge_recharge"]
+[connection signal="timeout" from="DodgeController/DodgeRecharge_ProgressBar/Dodge_Recharge_Timer" to="DodgeController" method="_dodge_system_finish"]
 [connection signal="pressed" from="HUD/GameMenu/MarginContainer/VBoxContainer/ResumeBTN" to="HUD/GameMenu" method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="HUD/GameMenu/MarginContainer/VBoxContainer/SettingsBTN" to="HUD/GameMenu" method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="HUD/GameMenu/MarginContainer/VBoxContainer/QuitBTN" to="HUD/GameMenu" method="_on_quit_btn_pressed"]
+[connection signal="timeout" from="InteractionController/CheckTimer" to="InteractionController" method="_check"]

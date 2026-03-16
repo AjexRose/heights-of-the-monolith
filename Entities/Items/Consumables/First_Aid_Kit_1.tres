@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_xgq5e")
+IsHealthConsumable = true
 Health_Restored = 2.0
 Display_Name = "Trauma Kit"
 Description = "Restores a small amount of health"

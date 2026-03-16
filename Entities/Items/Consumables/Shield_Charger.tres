@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_5gxhr")
+IsShieldConsumable = true
 Shield_Restored = 1.0
 Display_Name = "Shield Changer"
 Description = "Restores a small amount of shield"

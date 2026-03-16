@@ -7,9 +7,11 @@
 radius = 4.1231055
 
 [node name="WorldItem" type="Area2D" unique_id=173003202]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_0ayrr")
+prompt = "Pick up "
+single_use = true
 
 [node name="ItemSprite" type="Sprite2D" parent="." unique_id=467209178]
 texture = ExtResource("2_0oyto")

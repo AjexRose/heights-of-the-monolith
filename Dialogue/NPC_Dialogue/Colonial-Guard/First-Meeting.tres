@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://ds6b2dgowmpj7"]
+
+[ext_resource type="Resource" uid="uid://v6x4p0iu670x" path="res://Entities/Items/Extractables/Fresh_Water.tres" id="2_6gabx"]
+[ext_resource type="Texture2D" uid="uid://djo8yf7t4cjd3" path="res://Textures/NPC/Generics/PROTO-colonial-guard.png" id="2_crand"]
+[ext_resource type="Script" uid="uid://bwsxwutjnchpa" path="res://Dialogue/Dialogue.gd" id="2_pg7xx"]
+
+[resource]
+script = ExtResource("2_pg7xx")
+npc_name = "Colonial Guard"
+npc_title = "Its in the name"
+npc_icon = ExtResource("2_crand")
+lines = Array[String](["Hey, who the hell are you?", "Oh... just another wanna ruler here for the Monolith.. anyone who wants access to the Colony and the Monolith needs to speak to the Overseer.", "She's up by the entrance of the Monolith if you want to talk.", "There is an entree fee though... and those waters look nice."])
+item_to_take = ExtResource("2_6gabx")
+item_to_take_quantity = 2
+metadata/_custom_type_script = "uid://bwsxwutjnchpa"

@@ -34,8 +34,7 @@ func set_item_slot (item_slot : Inventory.ItemSlot, player : Player):
 func _on_pressed ():
 	super._on_pressed()
 	
-	if not item_slot or not item_slot.item:
+	if not item_slot or not item_slot.Item:
 		return
 	
-	pass
-	#click on the item - trigger it's effect
+	item_slot.Item._select_in_inventory(player, item_slot )

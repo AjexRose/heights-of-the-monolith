@@ -4,7 +4,10 @@
 [ext_resource type="Script" uid="uid://cm7smrxxas1sn" path="res://Scripts/Player/Camera.gd" id="2_qkv7o"]
 [ext_resource type="Texture2D" uid="uid://nt27hbnk7wrm" path="res://Textures/Environments/Sandbox/RMC-Hybrisa-Tiles.png" id="3_1yne8"]
 [ext_resource type="PackedScene" uid="uid://blgyf8eupkbk8" path="res://Entities/Enemies/test_enemy.tscn" id="6_cvg44"]
+[ext_resource type="PackedScene" uid="uid://fk68jst7swg6" path="res://NPCs/Colonial-Guard/ColonialGuardNPC.tscn" id="6_forfm"]
 [ext_resource type="PackedScene" uid="uid://c2sky025khm74" path="res://Entities/Damagables/damagable_crate.tscn" id="7_3es3c"]
+[ext_resource type="Resource" uid="uid://c116865ujna6a" path="res://Dialogue/NPC_Dialogue/Barks/Colony-Low-Reknown/CG_LowOpinion2.tres" id="8_0b5w1"]
+[ext_resource type="PackedScene" uid="uid://bdjlr7dg8t01o" path="res://NPCs/Colonial-Guard/ColonialGuardBarkNPC.tscn" id="8_20ygc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5tydj"]
 texture = ExtResource("3_1yne8")
@@ -74,3 +77,19 @@ position = Vector2(145, 91)
 [node name="Damagable_Crate5" parent="." unique_id=600275063 instance=ExtResource("7_3es3c")]
 position = Vector2(144, 123)
 scale = Vector2(1.024125, 1)
+
+[node name="ColonialGuardNpc" parent="." unique_id=1973425761 instance=ExtResource("6_forfm")]
+position = Vector2(-85, 51)
+
+[node name="ColonialGuardNPC_Bark" parent="." unique_id=1393847316 instance=ExtResource("8_20ygc")]
+position = Vector2(1, -2)
+
+[node name="ColonialGuardNPC_Bark2" parent="." unique_id=2119950020 instance=ExtResource("8_20ygc")]
+position = Vector2(2, 132)
+
+[node name="BarkController" parent="ColonialGuardNPC_Bark2" index="0" unique_id=669397785]
+dialogue_bark = ExtResource("8_0b5w1")
+
+[editable path="ColonialGuardNpc"]
+[editable path="ColonialGuardNPC_Bark"]
+[editable path="ColonialGuardNPC_Bark2"]

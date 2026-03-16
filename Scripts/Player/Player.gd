@@ -2,20 +2,27 @@ class_name Player
 extends CharacterBody2D
 
 # Upgradable Player Variables
-@export var Max_Health : float = 10
-@export var Max_Shield : float = 5
-@export var Movement_Speed : float = 100
+@export var Max_Health : int = 10
+@export var Max_Shield : int = 5
+@export var Base_Movement_Speed : float = 100
 @export var Dodge_Amount: float = 1
-@export var Dodge_Damage_Immune_Time: float = .3
+@export var In_Dodge_Time: float = .5
+@export var Dodge_Recharge_Time: float = 2
+@export var Dodge_Speed_Multi: float = 2
+@export var Shield_Break_Immune_Time : float = .5
 #@export var Inventory_Max_Size: int = 10
 #Non-Upgradable Player Variables
-var Current_Health : float = 10
-var Current_Shield : float = 5
-var Can_Dodge: bool = true
-var Can_Take_Damage: bool = true
+var Current_Health : int = 10
+var Current_Shield : int = 5
+var Current_Movement_Speed: float
+var Can_Dodge : bool = true
+var Can_Take_Damage : bool = true
+var Can_Move : bool = true
+var Is_Shield_Down : bool = false
 # Non-Upgradable Weapon Variables
 var Last_Shoot_Time: float
 var Projectile_Entity: PackedScene = preload("res://Entities/Projectiles/base_bullet.tscn")
+var Can_Use: bool = true
 var Can_Fire: bool = true
 var Bullet_Amount: float = 6
 #Upgradable Weapon Variables
@@ -32,27 +39,35 @@ var Bullet_Amount: float = 6
 @onready var Weapon_Origin : Node2D = $Weapon
 @onready var Muzzle : Node2D = $Weapon/Bullet_Marker
 @onready var ReloadTime : Timer = $Weapon/Reload_Timer
-@onready var Reload_ProgressBar : ProgressBar = $Reload_ProgressBar
-@onready var Player_Inventory : Node2D = $Inventory
-@onready var Player_HUD : CanvasLayer = $HUD
-@onready var Player_Inventory_HUD : Panel = $HUD/Inventory
+@onready var Player_Inventory : Node = $Inventory
 @onready var Audio_Player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var Shoot_Audio = preload ("res://Audio/PROTO_gunshot.wav")
 #HUD Controllers
+@onready var Reload_ProgressBar : ProgressBar = $Reload_ProgressBar
+@onready var Player_HUD : CanvasLayer = $HUD
+@onready var Player_Inventory_HUD : Panel = $HUD/Inventory
 @onready var HitPointBar : TextureProgressBar = $HUD/HealthPointBar
 @onready var ShieldPointBar : TextureProgressBar = $HUD/ShieldPointBar
 #Menu Controllers
 @onready var GameMenu = $HUD/GameMenu
 @onready var IsPaused : bool = false
+@onready var Interaction_Controller = InteractionController
+@onready var Dialogue_Controller : DialogueController = $DialogueController
+@onready var Dialogue_Bark_Controller : DialogueBarkController = $DialogueBarkController
+@onready var Health_Controller : HealthController = $HealthController
+@onready var Dodge_Controller : DodgeController = $DodgeController
 
 func _ready():
 	GlobalSignals.GameMenu_Resumed.connect(_Toggle_Game_Menu)
 	GameMenu.hide
+	
+	Current_Movement_Speed = Base_Movement_Speed
 
 func _physics_process(delta):
 	var move_input: Vector2 = Input.get_vector("Move_Left","Move_Right","Move_Up","Move_Down")
-	velocity = move_input * Movement_Speed
-	move_and_slide()
+	velocity = move_input * Current_Movement_Speed
+	if Can_Move:
+		move_and_slide()
 
 func _process(delta):
 	var mouse_pos : Vector2 = get_global_mouse_position()
@@ -85,8 +100,20 @@ func _process(delta):
 	if Input.is_action_just_pressed("Toggle_Game_Menu"):
 		_Toggle_Game_Menu()
 
+func _toggle_usability(toggle : bool):
+	Can_Move = toggle
+	Can_Use = toggle
+	
+	if not Interaction_Controller:
+		Interaction_Controller = $InteractionController
+		
+		if toggle:
+			Interaction_Controller.enable()
+		else: 
+			Interaction_Controller.disable()
+
 func _Shoot():
-	if Can_Fire == true && IsPaused == false:
+	if Can_Fire == true && IsPaused == false && Can_Use == true:
 		for i in range(Bullet_Per_Shot):
 			Last_Shoot_Time = Time.get_unix_time_from_system()
 	
@@ -130,8 +157,10 @@ func _on_reload_timer_timeout():
 func _Show_Inventory():
 	if $HUD/Inventory.visible == false:
 		$HUD/Inventory.visible = true
+		Can_Fire = false
 	else:
 		$HUD/Inventory.visible = false
+		Can_Fire = true
 
 func _Toggle_Game_Menu():
 	IsPaused = !IsPaused
@@ -148,7 +177,3 @@ func _Toggle_Game_Menu():
 		HitPointBar.show()
 		ShieldPointBar.show()
 		print("unpaused")
-	
-
-func take_damage (amount: float):
-	pass

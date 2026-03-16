@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bdjlr7dg8t01o"]
+
+[ext_resource type="Script" uid="uid://bpbvni8gkmnb6" path="res://Dialogue/DialogueBarker_NPC.gd" id="1_8un7g"]
+[ext_resource type="Texture2D" uid="uid://djo8yf7t4cjd3" path="res://Textures/NPC/Generics/PROTO-colonial-guard.png" id="1_vmwja"]
+[ext_resource type="Resource" uid="uid://bo8kscqm3g276" path="res://Dialogue/NPC_Dialogue/Barks/Colony-Low-Reknown/CG_LowOpinion1.tres" id="2_8ras6"]
+[ext_resource type="Script" uid="uid://kqasec2dkise" path="res://Scripts/Generics/Generic_Interactable.gd" id="2_8un7g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ras6"]
+radius = 70.71068
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uc6x"]
+
+[node name="ColonialGuardNPC_Bark" type="CharacterBody2D" unique_id=1393847316]
+
+[node name="BarkController" type="Node2D" parent="." unique_id=669397785]
+script = ExtResource("1_8un7g")
+dialogue_bark = ExtResource("2_8ras6")
+
+[node name="NPC_Sprite" type="Sprite2D" parent="." unique_id=1183531584]
+texture = ExtResource("1_vmwja")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=174623016]
+script = ExtResource("2_8un7g")
+prompt = ""
+single_use = true
+show_key_prefix = false
+
+[node name="InteractRange" type="CollisionShape2D" parent="InteractionArea" unique_id=150472051]
+shape = SubResource("CircleShape2D_8ras6")
+
+[node name="Collider_Shape" type="CollisionShape2D" parent="." unique_id=1301254725]
+shape = SubResource("CapsuleShape2D_3uc6x")
+
+[node name="BarkLocator" type="Marker2D" parent="." unique_id=1762327802]
+position = Vector2(0, -35)
+
+[connection signal="area_entered" from="InteractionArea" to="BarkController" method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="BarkController" method="_on_interaction_area_area_exited"]

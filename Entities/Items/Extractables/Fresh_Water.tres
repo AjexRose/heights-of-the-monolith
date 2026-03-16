@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_slkkh")
-Chit_Value = 10.0
 Display_Name = "Clean Water"
 Description = "Water not tainted by disease or toxins. Rare but essential."
 Max_Stack_Size = 5
+Chit_Value = 5
 Icon = ExtResource("1_d0yjx")
 metadata/_custom_type_script = "uid://ddpjtbwb8daf3"
