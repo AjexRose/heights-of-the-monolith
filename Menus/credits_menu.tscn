@@ -81,7 +81,7 @@ texture = ExtResource("1_rfwp5")
 offset_left = 49.0
 offset_top = 40.0
 offset_right = 810.0
-offset_bottom = 469.0
+offset_bottom = 537.0
 text = "Art by the Space Station 14 Community
 Used under CC-BY-SA-3.0  and  CC-BY-NC-SA 3.0
 https://github.com/space-wizards/space-station-14
@@ -90,7 +90,8 @@ https://github.com/RMC-14/RMC-14
 https://github.com/Monolith-Station/Monolith/pulls
 CRT Shader by A7meD under CC0 Liscense.
 
-Coding by Alexander \"AjexRose\" Inacio Carrizales"
+Coding by Alexander \"AjexRose\" Inacio Carrizales
+Music by _astral on discord."
 label_settings = SubResource("LabelSettings_2xf5f")
 
 [node name="SpecialThanks" type="Label" parent="CanvasLayer" unique_id=1353199801]

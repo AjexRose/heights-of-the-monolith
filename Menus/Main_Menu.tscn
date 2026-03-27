@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://uojg8f2ir81b" path="res://Textures/UI/PauseMenu/Pause-Menu-Button-Static.png" id="2_jca3q"]
 [ext_resource type="FontFile" uid="uid://cdpy3en31nuof" path="res://Font/Sevastopol-Interface.ttf" id="3_3ch0s"]
 [ext_resource type="Shader" uid="uid://ngnykembger7" path="res://Shaders/CRT-Scanline_Shader.gdshader" id="5_pexlp"]
+[ext_resource type="AudioStream" uid="uid://cl5hhuv5trvks" path="res://Audio/MenuMusic/Title.wav" id="7_1gd2q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1gd2q"]
 shader = ExtResource("5_pexlp")
@@ -35,6 +36,13 @@ shader_parameter/vignette_opacity = 0.250000011875
 font = ExtResource("3_3ch0s")
 font_size = 35
 
+[sub_resource type="LabelSettings" id="LabelSettings_1gd2q"]
+font = ExtResource("3_3ch0s")
+font_size = 120
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
 [node name="MainMenu" type="Control" unique_id=1137627554]
 layout_mode = 3
 anchors_preset = 15
@@ -59,6 +67,7 @@ material = SubResource("ShaderMaterial_1gd2q")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.1760254
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9989801, 1)
@@ -417,7 +426,22 @@ offset_bottom = 38.0
 text = "CREDITS"
 label_settings = SubResource("LabelSettings_pexlp")
 
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1954504162]
+offset_left = 603.0
+offset_top = 16.0
+offset_right = 1143.0
+offset_bottom = 361.0
+text = "HEIGHTS OF
+	THE MONOLITH
+TEST PROGRAM"
+label_settings = SubResource("LabelSettings_1gd2q")
+
+[node name="MainMenuAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1518763193]
+stream = ExtResource("7_1gd2q")
+autoplay = true
+
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Play_BTN" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Settings_BTN" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Quit_BUN" to="." method="_on_quit_bun_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Credits_BTN" to="." method="_on_credits_btn_pressed"]
+[connection signal="finished" from="MainMenuAudioPlayer" to="." method="_on_main_menu_audio_player_finished"]

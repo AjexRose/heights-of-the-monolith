@@ -18,31 +18,34 @@ func heal_shield(amount : float):
 	if player.Current_Shield > player.Max_Shield:
 		player.Current_Shield = player.Max_Shield
 
-func take_damage (amount: int):
-
+func take_damage(amount: int):
+	#SHIELD SYSTEM
 	if player.Current_Shield > 0:
 		player.Current_Shield -= amount
 		shield_damage_flash()
 		
-		if player.Current_Shield <= 0 and not player.Is_Shield_Down:
+		if player.Current_Shield <= 0:
 			player.Current_Shield = 0
-			shield_down_()
-		amount = 0
-	
-	if player.Is_Shield_Down and amount > 0:
+			shield_down_() # <- Auto-Dodge connection
+
+	# HEALTH SYSTEM: 
+	if player.Current_Shield <= 0:
+		if not player.Can_Take_Damage: #checks if in dodge
+			return
 		player.Current_Health -= amount
 		health_damage_flash()
 	
 func shield_down_ ():
-	if player.Is_Shield_Down == false:
-		player.Dodge_Controller._force_dodge()
+	if not player.Is_Shield_Down:
 		player.Is_Shield_Down = true
-		return
+		player.Dodge_Controller._force_dodge() 
+		# trigger the animation here
 	
 func shield_up():
 	if player.Is_Shield_Down == true:
 		if player.Current_Shield > 0:
 			player.Is_Shield_Down = false
+			# trigger the animation here
 			
 func shield_damage_flash():
 	player.Player_Sprite.modulate = Color.MEDIUM_TURQUOISE

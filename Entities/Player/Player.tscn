@@ -247,6 +247,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_80tt4")
 show_percentage = false
 
 [node name="In_Dodge_Timer" type="Timer" parent="DodgeController/InDodge_ProgressBar" unique_id=1870931277]
+one_shot = true
 
 [node name="DodgeRecharge_ProgressBar" type="ProgressBar" parent="DodgeController" unique_id=316481571]
 visible = false
@@ -259,6 +260,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_h03de")
 show_percentage = false
 
 [node name="Dodge_Recharge_Timer" type="Timer" parent="DodgeController/DodgeRecharge_ProgressBar" unique_id=2029261679]
+one_shot = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=233563043]
 

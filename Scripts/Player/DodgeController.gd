@@ -18,40 +18,43 @@ func _ready():
 	DodgeRecharge_ProgressBar.max_value = DodgeRechargeTimer.wait_time
 
 func _process(delta: float):
-	if Input.is_action_just_pressed("Dash"):
+	if player.Is_Shield_Down:
+		player.Is_Shield_Down = false 
+		_force_dodge()
+		
+	if Input.is_action_just_pressed("Dash") and player.Can_Dodge:
 		_try_dodge()
-	
+
 	InDodge_ProgressBar.value = InDodgeTimer.time_left
 	DodgeRecharge_ProgressBar.value = DodgeRechargeTimer.wait_time - DodgeRechargeTimer.time_left
 
 func _try_dodge():
-	if player.Can_Dodge:
-		_dodge()
-		player.Can_Dodge = !player.Can_Dodge
-	else:
-		return
+	player.Can_Dodge = false
+	_dodge()
 
 func _force_dodge():
-	if player.Is_Shield_Down == true:
-		player.Can_Dodge = true
+	player.Can_Dodge = false
 	_dodge()
 
 func _dodge():
+	InDodgeTimer.stop() #These stop timers already going to prevent unintended stacking
+	DodgeRechargeTimer.stop() # <- see above
+	
+	player.Can_Take_Damage = false
+	player.Current_Movement_Speed = player.Base_Movement_Speed * player.Dodge_Speed_Multi
+	
 	InDodge_ProgressBar.show()
 	InDodgeTimer.start()
-	player.Can_Take_Damage = false
-	player.Current_Movement_Speed = player.Base_Movement_Speed * player.Dodge_Speed_Multi	
 
 func _dodge_recharge():
 	player.Current_Movement_Speed = player.Base_Movement_Speed
-	InDodgeTimer.stop()
-	InDodge_ProgressBar.hide()
 	player.Can_Take_Damage = true
-	DodgeRechargeTimer.start()
+	InDodge_ProgressBar.hide()
+	
 	DodgeRecharge_ProgressBar.show()
-
+	DodgeRechargeTimer.start()
 
 func _dodge_system_finish():
-	DodgeRechargeTimer.stop()
 	DodgeRecharge_ProgressBar.hide()
-	player.Can_Dodge = !player.Can_Dodge
+	player.Can_Dodge = true
+	player.Can_Take_Damage = true 
