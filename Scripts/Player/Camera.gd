@@ -1,12 +1,26 @@
 extends Camera2D
 
-var Desired_Offset : Vector2
-var Min_Offset : float = -100
-var Max_Offset : float = 100
+@export var target : Player
 
-func _process(delta: float) -> void:
-	Desired_Offset = (get_global_mouse_position() - position ) * 0.5
-	Desired_Offset.x = clamp(Desired_Offset.x, Min_Offset, Max_Offset)
-	Desired_Offset.y = clamp(Desired_Offset.y, Min_Offset/2, Max_Offset/2)
+func _ready():
+	if GameManager.camera and GameManager.camera != self:
+		queue_free()
+		return
+	GameManager.camera = self
 	
-	global_position = get_parent().get_node("Player").global_position + Desired_Offset
+	if get_parent() != get_tree().root:
+		reparent.call_deferred(get_tree().root)
+
+func _physics_process(delta):
+	# Fallback if target is lost
+	if not target and GameManager.player:
+		target = GameManager.player
+		
+	if target:
+		global_position = global_position.lerp(target.global_position, delta * 5.0)
+
+func force_snap():
+	if target:
+		global_position = target.global_position
+		reset_smoothing()
+	make_current()

@@ -2,7 +2,6 @@ class_name HealthController
 extends Node2D
 
 @onready var player : Player = $".."
-
 @onready var Shield_Break_Immune_Timer : Timer = $ShieldBreakImmuneTimer
 
 func _process(delta: float):

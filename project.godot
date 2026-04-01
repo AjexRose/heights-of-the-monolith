@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalSignals="*uid://m64rhf011r4n"
+GameManager="*uid://cssg7x6lgjl4a"
 
 [global_group]
 

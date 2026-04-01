@@ -1,57 +1,25 @@
 [gd_scene format=4 uid="uid://dqn3n860on5w7"]
 
 [ext_resource type="PackedScene" uid="uid://bx3fnmitr1iig" path="res://Entities/Player/Player.tscn" id="1_cbjmm"]
-[ext_resource type="Script" uid="uid://cm7smrxxas1sn" path="res://Scripts/Player/Camera.gd" id="2_qkv7o"]
-[ext_resource type="Texture2D" uid="uid://nt27hbnk7wrm" path="res://Textures/Environments/Sandbox/RMC-Hybrisa-Tiles.png" id="3_1yne8"]
+[ext_resource type="TileSet" uid="uid://bu54emeu4r0er" path="res://Tilesets/proto-HybrisaTileSet.tres" id="1_wn5mp"]
+[ext_resource type="PackedScene" uid="uid://rq7yx02kmpam" path="res://Entities/Player/player_camera.tscn" id="2_s3tj5"]
 [ext_resource type="PackedScene" uid="uid://blgyf8eupkbk8" path="res://Entities/Enemies/test_enemy.tscn" id="6_cvg44"]
 [ext_resource type="PackedScene" uid="uid://fk68jst7swg6" path="res://NPCs/Colonial-Guard/ColonialGuardNPC.tscn" id="6_forfm"]
 [ext_resource type="PackedScene" uid="uid://c2sky025khm74" path="res://Entities/Damagables/damagable_crate.tscn" id="7_3es3c"]
 [ext_resource type="Resource" uid="uid://c116865ujna6a" path="res://Dialogue/NPC_Dialogue/Barks/Colony-Low-Reknown/CG_LowOpinion2.tres" id="8_0b5w1"]
 [ext_resource type="PackedScene" uid="uid://bdjlr7dg8t01o" path="res://NPCs/Colonial-Guard/ColonialGuardBarkNPC.tscn" id="8_20ygc"]
+[ext_resource type="Script" uid="uid://dhx57qe6q14f7" path="res://Scripts/Interaction/portal_interaction.gd" id="9_s3tj5"]
+[ext_resource type="Script" uid="uid://kqasec2dkise" path="res://Scripts/Generics/Generic_Interactable.gd" id="10_wn5mp"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5tydj"]
-texture = ExtResource("3_1yne8")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-1:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-1:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-5:4/0 = 0
-1:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_qkv7o"]
-tile_size = Vector2i(32, 32)
-sources/1 = SubResource("TileSetAtlasSource_5tydj")
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnxq3"]
 
 [node name="Sandbox" type="Node2D" unique_id=414318778]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=151484505]
 tile_map_data = PackedByteArray("AAD//wAAAQABAAEAAAD/////AQABAAEAAAAAAP//AQABAAEAAAABAP//AQABAAEAAAACAP//AQABAAEAAAADAP//AQABAAEAAAAEAP//AQABAAEAAAAFAP//AQABAAEAAAAFAAAAAQABAAEAAAAFAAEAAQABAAEAAAAFAAIAAQABAAEAAAAFAAMAAQABAAEAAAAFAAQAAQABAAEAAAAEAAQAAQABAAEAAAADAAQAAQABAAEAAAACAAQAAQABAAEAAAABAAQAAQABAAEAAAAAAAQAAQABAAEAAAD//wEAAQABAAEAAAD//wIAAQABAAEAAAD//wMAAQABAAEAAAD//wQAAQABAAEAAAAAAAMAAQABAAEAAAAAAAIAAQABAAEAAAAAAAEAAQABAAEAAAAAAAAAAQABAAEAAAABAAAAAQABAAEAAAABAAEAAQABAAEAAAABAAIAAQABAAEAAAABAAMAAQABAAEAAAACAAMAAQABAAEAAAACAAIAAQABAAEAAAACAAEAAQABAAEAAAACAAAAAQABAAEAAAADAAAAAQABAAEAAAADAAEAAQABAAEAAAADAAIAAQABAAEAAAADAAMAAQABAAEAAAAEAAMAAQABAAEAAAAEAAIAAQABAAEAAAAEAAEAAQABAAEAAAAEAAAAAQABAAEAAAD+////AQABAAEAAAD+/wAAAQABAAEAAAD+/wEAAQABAAEAAAD+/wIAAQABAAEAAAD+/wMAAQABAAEAAAD9/wMAAQABAAEAAAD9/wQAAQABAAEAAAD+/wQAAQABAAEAAAD9/wIAAQABAAEAAAD9/wEAAQABAAEAAAD9/wAAAQABAAEAAAD9////AQABAAEAAAD9/wUAAQABAAEAAAD+/wUAAQABAAEAAAD//wUAAQABAAEAAAAAAAUAAQABAAEAAAABAAUAAQABAAEAAAACAAUAAQABAAEAAAADAAUAAQABAAEAAAAEAAUAAQABAAEAAAAFAAUAAQABAAEAAAA=")
-tile_set = SubResource("TileSet_qkv7o")
+tile_set = ExtResource("1_wn5mp")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1778868636]
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-script = ExtResource("2_qkv7o")
+[node name="PlayerCamera" parent="." unique_id=13421668 instance=ExtResource("2_s3tj5")]
 
 [node name="Player" parent="." unique_id=2137229350 instance=ExtResource("1_cbjmm")]
 position = Vector2(68, 58)
@@ -89,6 +57,34 @@ position = Vector2(2, 132)
 
 [node name="BarkController" parent="ColonialGuardNPC_Bark2" index="0" unique_id=669397785]
 dialogue_bark = ExtResource("8_0b5w1")
+
+[node name="MonolithEntrance" type="Node2D" parent="." unique_id=1754857435]
+position = Vector2(115, 182)
+scale = Vector2(1.8799982, 1.7600012)
+script = ExtResource("9_s3tj5")
+Scene_To_Load = "uid://d3glrtjd4s3ec"
+enter_position = Vector2(34, 141)
+
+[node name="ColorRect" type="ColorRect" parent="MonolithEntrance" unique_id=953332155]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.936169
+offset_top = -10.000008
+offset_right = 8.936169
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0, 1)
+
+[node name="Interactable" type="Area2D" parent="MonolithEntrance" unique_id=388553243]
+script = ExtResource("10_wn5mp")
+prompt = "ENTER MONOLITH"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonolithEntrance/Interactable" unique_id=1393288752]
+shape = SubResource("CircleShape2D_dnxq3")
 
 [editable path="ColonialGuardNpc"]
 [editable path="ColonialGuardNPC_Bark"]

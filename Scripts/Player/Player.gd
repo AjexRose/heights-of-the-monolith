@@ -58,8 +58,19 @@ var Bullet_Amount: float = 6
 @onready var Dodge_Controller : DodgeController = $DodgeController
 
 func _ready():
+	
+	if GameManager.player and GameManager.player != self:
+		queue_free()
+		return
+	
+	GameManager.player = self
+	reparent.call_deferred(get_tree().root)
+	
 	GlobalSignals.GameMenu_Resumed.connect(_Toggle_Game_Menu)
 	GameMenu.hide
+	
+	HitPointBar.show()
+	ShieldPointBar.show()
 	
 	Current_Movement_Speed = Base_Movement_Speed
 
