@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueBark" format=3 uid="uid://cl3gn26lmatue"]
+
+[ext_resource type="Script" uid="uid://cfkgyopn0d1w1" path="res://Dialogue/DialogueBark.gd" id="1_w0gkl"]
+
+[resource]
+script = ExtResource("1_w0gkl")
+barker_name = "Ancient Dummy"
+lines = Array[String](["Some barriers and hazards can be avoided with a DODGE. Press SHIFT"])
+metadata/_custom_type_script = "uid://cfkgyopn0d1w1"

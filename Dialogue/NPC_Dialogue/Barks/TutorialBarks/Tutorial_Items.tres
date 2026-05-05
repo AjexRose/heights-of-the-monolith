@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueBark" format=3 uid="uid://bhn6nvly10vtx"]
+
+[ext_resource type="Script" uid="uid://cfkgyopn0d1w1" path="res://Dialogue/DialogueBark.gd" id="1_wgnt0"]
+
+[resource]
+script = ExtResource("1_wgnt0")
+barker_name = "Ancient Dummy"
+lines = Array[String](["Crates hold items, destroy crates to collect them! Press TAB to open!"])
+metadata/_custom_type_script = "uid://cfkgyopn0d1w1"

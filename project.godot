@@ -13,12 +13,26 @@ config_version=5
 config/name="HeightsOfTheMonolith"
 run/main_scene="uid://wp40n50rh1x2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://ci8xlr1vfbdol"
+config/icon="uid://ci8xlr1vfbdol"
 
 [autoload]
 
 GlobalSignals="*uid://m64rhf011r4n"
 GameManager="*uid://cssg7x6lgjl4a"
+SproutyDialogs="*uid://c8gxm75j80u8c"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sprouty_dialogs/plugin.cfg")
 
 [global_group]
 
@@ -60,8 +74,8 @@ variables/variables={
 "value": true
 }
 }
-internal/play_dialog_path="res://Dialouge System/Dialouge/Colonial-Guard.tres"
-internal/play_start_id="FIRST-MEETING"
+internal/play_dialog_path="res://_SpoutyDialogStuff/Dialogue/Chews_FirstGreeting.tres"
+internal/play_start_id="GREETING"
 
 [input]
 
@@ -140,3 +154,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/lossless_compression/force_png=true

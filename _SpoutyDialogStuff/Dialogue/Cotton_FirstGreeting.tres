@@ -1,0 +1,181 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://cjric4gmyxd30"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_ttjsn"]
+
+[resource]
+script = ExtResource("1_ttjsn")
+graph_data = {
+"GREETING": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "Cotton",
+"dialog_key": "GREETING_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(140, -160),
+"portrait": "",
+"size": Vector2(250.00003, 377),
+"to_dialog": "",
+"to_node": ["options_node_1"]
+},
+"dialogue_node_2": {
+"char_expand": true,
+"character": "Cotton",
+"dialog_key": "GREETING_DIALOG_2",
+"node_index": 2,
+"node_type": "dialogue_node",
+"offset": Vector2(780, -540),
+"portrait": "",
+"size": Vector2(250, 377),
+"to_dialog": "",
+"to_node": ["options_node_2"]
+},
+"dialogue_node_3": {
+"char_expand": true,
+"character": "Cotton",
+"dialog_key": "GREETING_DIALOG_3",
+"node_index": 3,
+"node_type": "dialogue_node",
+"offset": Vector2(780, -160),
+"portrait": "",
+"size": Vector2(250, 377),
+"to_dialog": "",
+"to_node": ["options_node_2"]
+},
+"dialogue_node_4": {
+"char_expand": true,
+"character": "Cotton",
+"dialog_key": "GREETING_DIALOG_4",
+"node_index": 4,
+"node_type": "dialogue_node",
+"offset": Vector2(1540, -220),
+"portrait": "",
+"size": Vector2(250.00024, 377),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"options_node_1": {
+"node_index": 1,
+"node_type": "options_node",
+"offset": Vector2(460, -159.92004),
+"options_conditions": [{
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}, {
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}, {
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}],
+"options_keys": ["GREETING_OPT1_1", "GREETING_OPT1_2", "GREETING_OPT1_3"],
+"size": Vector2(250.00006, 427.00006),
+"to_dialog": "",
+"to_node": ["dialogue_node_2", "dialogue_node_3", "dialogue_node_4"]
+},
+"options_node_2": {
+"node_index": 2,
+"node_type": "options_node",
+"offset": Vector2(1200, -220),
+"options_conditions": [{
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}],
+"options_keys": ["GREETING_OPT2_1"],
+"size": Vector2(250, 195.00002),
+"to_dialog": "",
+"to_node": ["dialogue_node_4"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(-120, -120),
+"size": Vector2(190, 97.00004),
+"start_id": "GREETING",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"GREETING_DIALOG_1": {
+"default": "Well well well, if it isn't the town recluse. Hows... whatever you're doing?",
+"en": ""
+},
+"GREETING_DIALOG_2": {
+"default": "You're more talkative then normal... what do you want?",
+"en": ""
+},
+"GREETING_DIALOG_3": {
+"default": "Just as talkative as always...
+whats got you coming out of your hole?",
+"en": ""
+},
+"GREETING_DIALOG_4": {
+"default": "Supply is low, we're prioritizing the children and the vulnerable.
+Even if we did, I doubt you got any ration tokens for some.
+I heard Chews is in need of help, if you feel like doing something productive for once.",
+"en": ""
+},
+"GREETING_OPT1_1": {
+"default": "Doing as well as I can."
+},
+"GREETING_OPT1_2": {
+"default": "Not your business."
+},
+"GREETING_OPT1_3": {
+"default": "Got any water?"
+},
+"GREETING_OPT2_1": {
+"default": "Hoping to get water."
+}
+}
+characters = {
+"GREETING": {
+"Cotton": 8630496783135439564
+}
+}

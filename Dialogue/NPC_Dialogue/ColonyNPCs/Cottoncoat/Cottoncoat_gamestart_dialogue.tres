@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://dtiyfhxhisbtp"]
+
+[ext_resource type="Script" uid="uid://bwsxwutjnchpa" path="res://Dialogue/Dialogue.gd" id="1_4ciqr"]
+
+[resource]
+script = ExtResource("1_4ciqr")
+npc_name = "\"Cottoncoat\""
+npc_title = "Quartermaster of the Colony."
+lines = Array[String](["Well well well. Look whose come crawling out of their hut.", "No we dont have spare water, we're running low actually.", "A bunch of automatons on the ground floor are causing problems.", "All the other raiders are too wounded to fight them.", "If you want water, go do something useful."])
+metadata/_custom_type_script = "uid://bwsxwutjnchpa"

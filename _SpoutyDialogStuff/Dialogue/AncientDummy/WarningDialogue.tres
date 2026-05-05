@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://cbn3fcf86nii5"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_kq1eh"]
+
+[resource]
+script = ExtResource("1_kq1eh")
+graph_data = {
+"WARNING": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "TESTER",
+"dialog_key": "WARNING_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(550, 178),
+"portrait": "",
+"size": Vector2(250.00003, 377),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(175, 213),
+"size": Vector2(190.00002, 97),
+"start_id": "WARNING",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"WARNING_DIALOG_1": {
+"default": "ATTENTION, NON-COOPERATIVE AUTOMATONS AHEAD. 
+PLEASE PROCEED WITH CAUTION",
+"en": ""
+}
+}
+characters = {
+"WARNING": {
+"TESTER": 2475519718531747117
+}
+}

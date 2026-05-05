@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SproutyDialogsCharacterData" format=3 uid="uid://du7xaym2flrs3"]
+
+[ext_resource type="Script" uid="uid://kwoapf8il7ee" path="res://addons/sprouty_dialogs/resources/character_data.gd" id="1_5uwgx"]
+
+[resource]
+script = ExtResource("1_5uwgx")
+key_name = "Cotton"
+display_name = {
+"default": "Cottoncoat Weaver",
+"en": ""
+}

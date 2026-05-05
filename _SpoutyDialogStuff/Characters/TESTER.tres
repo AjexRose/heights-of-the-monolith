@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SproutyDialogsCharacterData" format=3 uid="uid://bbjfph8t2iean"]
+
+[ext_resource type="Script" uid="uid://kwoapf8il7ee" path="res://addons/sprouty_dialogs/resources/character_data.gd" id="1_vnv7l"]
+
+[resource]
+script = ExtResource("1_vnv7l")
+key_name = "TESTER"
+display_name = {
+"default": "Ancient Dummy",
+"en": ""
+}
+description = "This is to test Spouty Dialogue Systems"

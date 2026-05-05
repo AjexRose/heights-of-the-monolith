@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccfj501mxa7q5"
+path="res://.godot/imported/Nowhere_160 BPM_Full_Loop.wav-cb56a1ad19a9e3007b51b8438adb0429.sample"
+
+[deps]
+
+source_file="res://Audio/Roguelike_Stylized_Levels/Nowhere/Nowhere_160 BPM_Full_Loop.wav"
+dest_files=["res://.godot/imported/Nowhere_160 BPM_Full_Loop.wav-cb56a1ad19a9e3007b51b8438adb0429.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

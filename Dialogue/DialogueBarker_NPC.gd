@@ -10,3 +10,7 @@ func _on_interaction_area_area_entered(area: Area2D):
 	if area is InteractionController:
 		var player = area.player 
 		player.Dialogue_Bark_Controller.set_bark_dialogue(dialogue_bark, self)
+
+#sfunc _on_interaction_area_area_exited(area: Area2D):
+	#var player = area.player 
+	#player.Dialogue_Bark_Controller._close_screen()

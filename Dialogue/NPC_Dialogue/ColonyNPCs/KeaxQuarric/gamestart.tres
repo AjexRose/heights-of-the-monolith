@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://s2aee6pwj7k4"]
+
+[ext_resource type="Script" uid="uid://bwsxwutjnchpa" path="res://Dialogue/Dialogue.gd" id="1_mtd3d"]
+
+[resource]
+script = ExtResource("1_mtd3d")
+npc_name = "Keax Quarric"
+npc_title = "A mercant, a capitalizer of misfortune and need"
+lines = Array[String](["Hey there little gopher. Nothing in stock right now.", "Not like you have any chits to buy anything.", "Hahaha."])
+metadata/_custom_type_script = "uid://bwsxwutjnchpa"

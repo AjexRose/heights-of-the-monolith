@@ -10,7 +10,7 @@ radius = 21.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30gpg"]
 
-[node name="ColonialGuardNpc" type="CharacterBody2D" unique_id=1973425761]
+[node name="NpcTalk" type="CharacterBody2D" unique_id=1973425761]
 
 [node name="DialogueManager" type="Node2D" parent="." unique_id=1134248592]
 script = ExtResource("1_f6vc3")

@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://cgvsixfbxvec1"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_yrvf2"]
+
+[resource]
+script = ExtResource("1_yrvf2")
+graph_data = {
+"GREETING": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "Keax",
+"dialog_key": "GREETING_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(460, 100),
+"portrait": "",
+"size": Vector2(250, 377),
+"to_dialog": "",
+"to_node": ["options_node_1"]
+},
+"dialogue_node_2": {
+"char_expand": true,
+"character": "Keax",
+"dialog_key": "GREETING_DIALOG_2",
+"node_index": 2,
+"node_type": "dialogue_node",
+"offset": Vector2(1160, 140),
+"portrait": "",
+"size": Vector2(250, 377),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"options_node_1": {
+"node_index": 1,
+"node_type": "options_node",
+"offset": Vector2(840, 260),
+"options_conditions": [{
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}],
+"options_keys": ["GREETING_OPT1_1"],
+"size": Vector2(250, 195),
+"to_dialog": "",
+"to_node": ["dialogue_node_2"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(208, 218),
+"size": Vector2(190, 96.99997),
+"start_id": "GREETING",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"GREETING_DIALOG_1": {
+"default": "Woah, little kitten has finally left their cave, haha! 
+Whats the occasion?",
+"en": ""
+},
+"GREETING_DIALOG_2": {
+"default": "I ain't in the charity business, so whatever you want, come back when you got some chits to back it.",
+"en": ""
+},
+"GREETING_OPT1_1": {
+"default": "I need som-"
+}
+}
+characters = {
+"GREETING": {
+"Keax": 8066156855020227799
+}
+}

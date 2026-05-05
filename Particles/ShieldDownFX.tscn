@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bm6bkr27stjeo"]
+
+[sub_resource type="Gradient" id="Gradient_q4icx"]
+colors = PackedColorArray(0, 0.5686275, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bvuqx"]
+gradient = SubResource("Gradient_q4icx")
+
+[sub_resource type="Curve" id="Curve_08ygy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_q1tob"]
+curve = SubResource("Curve_08ygy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oea8t"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angular_velocity_min = -731.95
+angular_velocity_max = 719.99994
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 49.999977
+gravity = Vector3(0, 50, 0)
+scale_min = 0.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_q1tob")
+color_ramp = SubResource("GradientTexture1D_bvuqx")
+hue_variation_min = -0.100000024
+hue_variation_max = 0.029999977
+
+[node name="ShieldDownFx" type="GPUParticles2D" unique_id=837700263]
+amount = 50
+randomness = 1.0
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_oea8t")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://bf3mj3j7rc2xl"]
+
+[ext_resource type="Script" uid="uid://bwsxwutjnchpa" path="res://Dialogue/Dialogue.gd" id="1_rdw26"]
+
+[resource]
+script = ExtResource("1_rdw26")
+npc_name = "Chews-The-Cables"
+npc_title = "Acting Security Lead, their name is true."
+lines = Array[String](["Who the hell are-", "oh, its you.", "Good to see you finally making yourself useful to the Colony.", "Some automatons are blocking the reception area.", "Most of our raiders are either wounded or treating the wounds to fight.", "Use that fancy shamncy pistol of yours to good use."])
+metadata/_custom_type_script = "uid://bwsxwutjnchpa"

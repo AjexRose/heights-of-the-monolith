@@ -1,0 +1,194 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://dnxiqtup3uqlq"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_6g4i5"]
+
+[resource]
+script = ExtResource("1_6g4i5")
+graph_data = {
+"GREETING": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "Eats",
+"dialog_key": "GREETING_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(500, 160),
+"portrait": "",
+"size": Vector2(250, 377),
+"to_dialog": "",
+"to_node": ["options_node_1"]
+},
+"dialogue_node_2": {
+"char_expand": true,
+"character": "Eats",
+"dialog_key": "GREETING_DIALOG_2",
+"node_index": 2,
+"node_type": "dialogue_node",
+"offset": Vector2(2280, 160),
+"portrait": "",
+"size": Vector2(250, 377),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"dialogue_node_3": {
+"char_expand": true,
+"character": "Eats",
+"dialog_key": "GREETING_DIALOG_3",
+"node_index": 3,
+"node_type": "dialogue_node",
+"offset": Vector2(1100, 560),
+"portrait": "",
+"size": Vector2(250, 377),
+"to_dialog": "",
+"to_node": ["options_node_2"]
+},
+"dialogue_node_4": {
+"char_expand": true,
+"character": "Eats",
+"dialog_key": "GREETING_DIALOG_4",
+"node_index": 4,
+"node_type": "dialogue_node",
+"offset": Vector2(1680, 760),
+"portrait": "",
+"size": Vector2(250, 377),
+"to_dialog": "",
+"to_node": ["options_node_3"]
+},
+"options_node_1": {
+"node_index": 1,
+"node_type": "options_node",
+"offset": Vector2(840, 180),
+"options_conditions": [{
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}, {
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}],
+"options_keys": ["GREETING_OPT1_1", "GREETING_OPT1_2"],
+"size": Vector2(250, 311),
+"to_dialog": "",
+"to_node": ["dialogue_node_2", "dialogue_node_3"]
+},
+"options_node_2": {
+"node_index": 2,
+"node_type": "options_node",
+"offset": Vector2(1380, 760),
+"options_conditions": [{
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}],
+"options_keys": ["GREETING_OPT2_1"],
+"size": Vector2(250, 195),
+"to_dialog": "",
+"to_node": ["dialogue_node_4"]
+},
+"options_node_3": {
+"node_index": 3,
+"node_type": "options_node",
+"offset": Vector2(1980, 760.03),
+"options_conditions": [{
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}],
+"options_keys": ["GREETING_OPT3_1"],
+"size": Vector2(250, 220),
+"to_dialog": "",
+"to_node": ["dialogue_node_2"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(225, 207),
+"size": Vector2(190, 97),
+"start_id": "GREETING",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"GREETING_DIALOG_1": {
+"default": "Whatever it is, I dont have time to deal with it-
+Oh... its you! Out of all people in the Colony, I didnt think you'd be here.
+Say, you still have that pistol you came into town touting?",
+"en": ""
+},
+"GREETING_DIALOG_2": {
+"default": "Good good, I'm commissioning you for a mission then.
+Our raiders are being pinned down by a cluster of automatons that made their way to the reception floor
+Clear out a path for the raiders, and I'll get you some ration tokens and chits.
+You can keep whatever you find of course.
+The doors to the reception are just ahead.",
+"en": ""
+},
+"GREETING_DIALOG_3": {
+"default": "Well, we got a problem that can be resolved with shooting, and my K54 is broken.",
+"en": ""
+},
+"GREETING_DIALOG_4": {
+"default": "Of course there is, this is hazardous, and given your track record its going to be half way to your record.",
+"en": ""
+},
+"GREETING_OPT1_1": {
+"default": "I do."
+},
+"GREETING_OPT1_2": {
+"default": "Whats it matter to you?"
+},
+"GREETING_OPT2_1": {
+"default": "Is there pay?"
+},
+"GREETING_OPT3_1": {
+"default": "I'll take up this job of yours then."
+}
+}
+characters = {
+"GREETING": {
+"Eats": 4040384188834488174
+}
+}

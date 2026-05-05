@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueBark" format=3 uid="uid://cvtrbmfvcrwix"]
+
+[ext_resource type="Script" uid="uid://cfkgyopn0d1w1" path="res://Dialogue/DialogueBark.gd" id="1_itn4x"]
+
+[resource]
+script = ExtResource("1_itn4x")
+barker_name = "Old PC"
+lines = Array[String](["\"A old screen saver is present, it reads; WASD to move\"w"])
+metadata/_custom_type_script = "uid://cfkgyopn0d1w1"

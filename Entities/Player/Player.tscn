@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://dkao6ctpvxsj7" path="res://Scripts/Menus/GameMenu.gd" id="16_e34i1"]
 [ext_resource type="Script" uid="uid://bpydjmmk7876y" path="res://Scripts/UI/Game_Button.gd" id="17_e34i1"]
 [ext_resource type="Texture2D" uid="uid://uojg8f2ir81b" path="res://Textures/UI/PauseMenu/Pause-Menu-Button-Static.png" id="18_vcmon"]
+[ext_resource type="Script" uid="uid://df0tjlxobd2sl" path="res://Scripts/Menus/GameOverMenu.gd" id="19_ewrch"]
 [ext_resource type="Script" uid="uid://55lyo0d6dmkm" path="res://Scripts/Player/Interaction_Controller.gd" id="21_h6pxy"]
 [ext_resource type="Texture2D" uid="uid://djo8yf7t4cjd3" path="res://Textures/NPC/Generics/PROTO-colonial-guard.png" id="22_mgqku"]
 [ext_resource type="Script" uid="uid://dka3a6vthebm8" path="res://Scripts/Player/DodgeController.gd" id="24_mgqku"]
@@ -170,27 +171,31 @@ shadow_offset = Vector2(0, 1)
 radius = 18.027756
 
 [node name="Player" type="CharacterBody2D" unique_id=2137229350 groups=["Player"]]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_vweq0")
 
 [node name="Player_Sprite2D" type="Sprite2D" parent="." unique_id=1136190653]
+y_sort_enabled = true
 scale = Vector2(-1, 1)
 texture = ExtResource("2_jynvv")
+offset = Vector2(0, -16)
 region_enabled = true
 region_rect = Rect2(32, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1716906667]
 y_sort_enabled = true
+position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_t38ms")
 
 [node name="Reload_ProgressBar" type="ProgressBar" parent="." unique_id=945167455]
 visible = false
 offset_left = -17.0
-offset_top = -13.0
+offset_top = -38.0
 offset_right = -13.0
-offset_bottom = 14.0
+offset_bottom = -11.0
 scale = Vector2(9.302843, 0.076100595)
 theme_override_styles/background = SubResource("StyleBoxFlat_1des2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_an6q6")
@@ -198,22 +203,6 @@ max_value = 1.0
 step = 0.0
 show_percentage = false
 script = ExtResource("4_1des2")
-
-[node name="Weapon" type="Node2D" parent="." unique_id=1425279838]
-position = Vector2(2, 0)
-scale = Vector2(0.5, 0.5)
-
-[node name="Weapon_Sprite" type="Sprite2D" parent="Weapon" unique_id=1909413781]
-position = Vector2(-4, -6)
-rotation = -1.5707964
-texture = ExtResource("3_an6q6")
-
-[node name="Bullet_Marker" type="Marker2D" parent="Weapon" unique_id=1455284924]
-position = Vector2(-8, -22)
-
-[node name="Reload_Timer" type="Timer" parent="Weapon" unique_id=721107633]
-wait_time = 2.0
-one_shot = true
 
 [node name="Inventory" type="Node2D" parent="." unique_id=1871381718]
 script = ExtResource("5_an6q6")
@@ -240,9 +229,9 @@ script = ExtResource("24_mgqku")
 [node name="InDodge_ProgressBar" type="ProgressBar" parent="DodgeController" unique_id=956214383]
 visible = false
 offset_left = -17.0
-offset_top = 19.0
+offset_top = 2.0
 offset_right = 20.0
-offset_bottom = 23.0
+offset_bottom = 6.0
 theme_override_styles/background = SubResource("StyleBoxFlat_mgqku")
 theme_override_styles/fill = SubResource("StyleBoxFlat_80tt4")
 show_percentage = false
@@ -253,9 +242,9 @@ one_shot = true
 [node name="DodgeRecharge_ProgressBar" type="ProgressBar" parent="DodgeController" unique_id=316481571]
 visible = false
 offset_left = -17.0
-offset_top = 19.0
+offset_top = 2.0
 offset_right = 20.0
-offset_bottom = 23.0
+offset_bottom = 6.0
 theme_override_styles/background = SubResource("StyleBoxFlat_tepoh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_h03de")
 show_percentage = false
@@ -275,8 +264,6 @@ material = SubResource("ShaderMaterial_h6pxy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 3.5931396
-offset_bottom = 4.7216797
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.99862134, 0.9927662)
@@ -558,6 +545,222 @@ scale = Vector2(1.0053033, 1.0740225)
 text = "QUIT GAME"
 label_settings = SubResource("LabelSettings_h6pxy")
 
+[node name="GameOverScreen" type="CanvasLayer" parent="HUD" unique_id=430134923]
+process_mode = 3
+visible = false
+script = ExtResource("19_ewrch")
+Scene_To_Load = "uid://8gl1baljjjfg"
+enter_position = Vector2(400, 320)
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameOverScreen" unique_id=361130090]
+material = SubResource("ShaderMaterial_h6pxy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.99862134, 0.9927662)
+texture = ExtResource("16_5m37j")
+
+[node name="Label" type="Label" parent="HUD/GameOverScreen" unique_id=437640919]
+offset_left = 940.0
+offset_top = 399.0
+offset_right = 1080.0
+offset_bottom = 422.0
+text = "You died."
+label_settings = SubResource("LabelSettings_h6pxy")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/GameOverScreen" unique_id=943080254]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -100.69951
+offset_right = 75.0
+offset_bottom = 99.300476
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/GameOverScreen/MarginContainer" unique_id=936346911]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="RetryBTN" type="BaseButton" parent="HUD/GameOverScreen/MarginContainer/VBoxContainer" unique_id=1604010069]
+unique_name_in_owner = false
+process_mode = 3
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("17_e34i1")
+metadata/_custom_type_script = "uid://bpydjmmk7876y"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameOverScreen/MarginContainer/VBoxContainer/RetryBTN" unique_id=171843550]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_vcmon")
+
+[node name="Label" type="Label" parent="HUD/GameOverScreen/MarginContainer/VBoxContainer/RetryBTN" unique_id=1578680703]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 109.0
+offset_bottom = 35.0
+scale = Vector2(1.0053033, 1.0740225)
+text = "RETRY"
+label_settings = SubResource("LabelSettings_h6pxy")
+
+[node name="QuitBTN" type="BaseButton" parent="HUD/GameOverScreen/MarginContainer/VBoxContainer" unique_id=844744266]
+unique_name_in_owner = false
+process_mode = 3
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("17_e34i1")
+metadata/_custom_type_script = "uid://bpydjmmk7876y"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameOverScreen/MarginContainer/VBoxContainer/QuitBTN" unique_id=1100867762]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_vcmon")
+
+[node name="Label" type="Label" parent="HUD/GameOverScreen/MarginContainer/VBoxContainer/QuitBTN" unique_id=1398046019]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 109.0
+offset_bottom = 35.0
+scale = Vector2(1.0053033, 1.0740225)
+text = "QUIT GAME"
+label_settings = SubResource("LabelSettings_h6pxy")
+
 [node name="Inventory" type="Panel" parent="HUD" unique_id=474662874 node_paths=PackedStringArray("slots")]
 visible = false
 anchors_preset = 2
@@ -624,9 +827,9 @@ layout_mode = 2
 [node name="Item_Info_Panel" type="Panel" parent="HUD" unique_id=411179815]
 visible = false
 offset_left = 20.0
-offset_top = 276.0
+offset_top = 689.0
 offset_right = 340.0
-offset_bottom = 396.0
+offset_bottom = 809.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lmeus")
 
@@ -693,8 +896,10 @@ autowrap_mode = 2
 
 [node name="HealthPointBar" type="TextureProgressBar" parent="HUD" unique_id=924067371]
 visible = false
-offset_right = 303.0
-offset_bottom = 53.0
+offset_left = 24.0
+offset_top = 21.0
+offset_right = 327.0
+offset_bottom = 74.0
 scale = Vector2(1.5, 1.5)
 max_value = 10.0
 value = 10.0
@@ -704,9 +909,10 @@ texture_progress = ExtResource("13_uw7o4")
 
 [node name="ShieldPointBar" type="TextureProgressBar" parent="HUD" unique_id=1955223564]
 visible = false
-offset_top = 78.0
-offset_right = 303.0
-offset_bottom = 131.0
+offset_left = 26.0
+offset_top = 104.0
+offset_right = 329.0
+offset_bottom = 157.0
 scale = Vector2(1.5, 1.5)
 max_value = 10.0
 value = 10.0
@@ -875,6 +1081,7 @@ autowrap_mode = 3
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=593500228]
 
 [node name="InteractionController" type="Area2D" parent="." unique_id=1772205095]
+position = Vector2(0, -16)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("21_h6pxy")
@@ -886,10 +1093,28 @@ shape = SubResource("CircleShape2D_h6pxy")
 wait_time = 0.1
 autostart = true
 
-[connection signal="timeout" from="Weapon/Reload_Timer" to="." method="_on_reload_timer_timeout"]
+[node name="Weapon" type="Node2D" parent="." unique_id=1425279838]
+position = Vector2(2, -15)
+scale = Vector2(0.5, 0.5)
+
+[node name="Weapon_Sprite" type="Sprite2D" parent="Weapon" unique_id=1909413781]
+position = Vector2(-4, -6)
+rotation = -1.5707964
+texture = ExtResource("3_an6q6")
+
+[node name="Bullet_Marker" type="Marker2D" parent="Weapon" unique_id=1455284924]
+position = Vector2(-8, -22)
+
+[node name="Reload_Timer" type="Timer" parent="Weapon" unique_id=721107633]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="DodgeController/InDodge_ProgressBar/In_Dodge_Timer" to="DodgeController" method="_dodge_recharge"]
 [connection signal="timeout" from="DodgeController/DodgeRecharge_ProgressBar/Dodge_Recharge_Timer" to="DodgeController" method="_dodge_system_finish"]
 [connection signal="pressed" from="HUD/GameMenu/MarginContainer/VBoxContainer/ResumeBTN" to="HUD/GameMenu" method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="HUD/GameMenu/MarginContainer/VBoxContainer/SettingsBTN" to="HUD/GameMenu" method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="HUD/GameMenu/MarginContainer/VBoxContainer/QuitBTN" to="HUD/GameMenu" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="HUD/GameOverScreen/MarginContainer/VBoxContainer/RetryBTN" to="HUD/GameOverScreen" method="_on_retry_btn_pressed"]
+[connection signal="pressed" from="HUD/GameOverScreen/MarginContainer/VBoxContainer/QuitBTN" to="HUD/GameOverScreen" method="_on_quit_btn_pressed"]
 [connection signal="timeout" from="InteractionController/CheckTimer" to="InteractionController" method="_check"]
+[connection signal="timeout" from="Weapon/Reload_Timer" to="." method="_on_reload_timer_timeout"]

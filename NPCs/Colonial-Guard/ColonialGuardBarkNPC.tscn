@@ -6,11 +6,11 @@
 [ext_resource type="Script" uid="uid://kqasec2dkise" path="res://Scripts/Generics/Generic_Interactable.gd" id="2_8un7g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ras6"]
-radius = 70.71068
+radius = 44.407207
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uc6x"]
 
-[node name="ColonialGuardNPC_Bark" type="CharacterBody2D" unique_id=1393847316]
+[node name="NPC_Bark" type="CharacterBody2D" unique_id=1393847316]
 
 [node name="BarkController" type="Node2D" parent="." unique_id=669397785]
 script = ExtResource("1_8un7g")

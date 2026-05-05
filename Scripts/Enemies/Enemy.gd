@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var Current_HP : int = 4
-@export var Max_HP : int = 4
-@export var Movement_Speed : float = 60
+@export var Current_HP : int = 3
+@export var Max_HP : int = 3
+@export var Movement_Speed : float = 80
 
 @export var Attack_Damage : int = 1
 @export var Attack_Range : float = 10
@@ -38,13 +38,14 @@ func _physics_process(delta):
 		_try_attack()
 		return
 	
-	velocity = Player_Direction * Movement_Speed
+	velocity = Player_Direction * (Movement_Speed*randf_range(0.9,1.1))
 	
 	move_and_slide()
 
 func take_damage (amount : int):
 	Current_HP -= amount
 	Audio_Player.stream = Damage_Audio
+	Audio_Player.pitch_scale = randf_range(0.8, 1.2)
 	Audio_Player.play()
 	damage_flash()
 	

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://byv8o44nyseus"]
+
+[ext_resource type="Resource" uid="uid://gkd2aohpiniy" path="res://Entities/Items/Consumables/First_Aid_Kit_1.tres" id="1_si01n"]
+[ext_resource type="Script" uid="uid://bwsxwutjnchpa" path="res://Dialogue/Dialogue.gd" id="1_wqujl"]
+[ext_resource type="Texture2D" uid="uid://djo8yf7t4cjd3" path="res://Textures/NPC/Generics/PROTO-colonial-guard.png" id="2_g37ru"]
+
+[resource]
+script = ExtResource("1_wqujl")
+npc_name = "Ancient Dummy"
+npc_title = "Made a decade ago, aged like centuries."
+npc_icon = ExtResource("2_g37ru")
+lines = Array[String](["WARNING. UNCONTROLLED AUTOMATONS HAVE BEEN DETECTED IN THE AREA AHEAD.", "PLEASE VENTURE WITH CAUTION", "TAKE SOME EMERGENCY MEDICAL KITS, CURTESY OF EXO'S WORKER SAFETY PROGRAM"])
+item_to_give = ExtResource("1_si01n")
+item_to_give_quantity = 2
+metadata/_custom_type_script = "uid://bwsxwutjnchpa"

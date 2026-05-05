@@ -53,6 +53,7 @@ grow_vertical = 2
 script = ExtResource("1_pexlp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1411603361]
+follow_viewport_enabled = true
 
 [node name="MainMenuArt" type="TextureRect" parent="CanvasLayer" unique_id=1101733054]
 anchors_preset = 15
@@ -427,13 +428,13 @@ text = "CREDITS"
 label_settings = SubResource("LabelSettings_pexlp")
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1954504162]
-offset_left = 603.0
-offset_top = 16.0
-offset_right = 1143.0
-offset_bottom = 361.0
-text = "HEIGHTS OF
-	THE MONOLITH
-TEST PROGRAM"
+offset_left = 999.0
+offset_top = 26.0
+offset_right = 1907.0
+offset_bottom = 371.0
+text = "HEIGHTS OF THE MONOLITH
+TEST PROGRAM
+charlie.0.6.1"
 label_settings = SubResource("LabelSettings_1gd2q")
 
 [node name="MainMenuAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1518763193]

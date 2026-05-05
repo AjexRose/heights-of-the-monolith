@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://pqa7ajb2rhbw"]
+
+[ext_resource type="Script" uid="uid://dhx57qe6q14f7" path="res://Scripts/Interaction/portal_interaction.gd" id="1_75faq"]
+[ext_resource type="Texture2D" uid="uid://bjgtibsgx1yr1" path="res://Textures/Environments/ladder.png" id="2_ise3p"]
+[ext_resource type="Script" uid="uid://kqasec2dkise" path="res://Scripts/Generics/Generic_Interactable.gd" id="3_wwtdq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnxq3"]
+
+[node name="MonolithEntrance" type="Node2D" unique_id=1130224341]
+position = Vector2(0, 2)
+scale = Vector2(1.8799982, 1.7600012)
+script = ExtResource("1_75faq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=349455004]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ise3p")
+
+[node name="Interactable" type="Area2D" parent="." unique_id=315987306]
+script = ExtResource("3_wwtdq")
+prompt = "Climb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1048692334]
+shape = SubResource("CircleShape2D_dnxq3")

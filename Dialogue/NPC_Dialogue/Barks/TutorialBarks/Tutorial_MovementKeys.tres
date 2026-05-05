@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueBark" format=3 uid="uid://cr3ul84h4ejo5"]
+
+[ext_resource type="Script" uid="uid://cfkgyopn0d1w1" path="res://Dialogue/DialogueBark.gd" id="1_3jngo"]
+
+[resource]
+script = ExtResource("1_3jngo")
+barker_name = "Ancient Dummy"
+lines = Array[String](["W, A, S, D to move! LMB to shoot!"])
+metadata/_custom_type_script = "uid://cfkgyopn0d1w1"

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://w7fhbse2x43c"]
+
+[ext_resource type="Script" uid="uid://da8avrmxhke3i" path="res://_SpoutyDialogStuff/Portraits/TestingPortraits/testingportrait.gd" id="1_q4vsw"]
+
+[node name="Testingportrait" type="Node2D" unique_id=987693807]
+script = ExtResource("1_q4vsw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=669827121]

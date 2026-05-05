@@ -19,9 +19,11 @@ var Can_Dodge : bool = true
 var Can_Take_Damage : bool = true
 var Can_Move : bool = true
 var Is_Shield_Down : bool = false
+var Is_Dodging : bool = false
 # Non-Upgradable Weapon Variables
 var Last_Shoot_Time: float
 var Projectile_Entity: PackedScene = preload("res://Entities/Projectiles/base_bullet.tscn")
+var Gun_FX: PackedScene = preload("res://Particles/Bullet_Hit_FX.tscn")
 var Can_Use: bool = true
 var Can_Fire: bool = true
 var Bullet_Amount: float = 6
@@ -50,6 +52,7 @@ var Bullet_Amount: float = 6
 @onready var ShieldPointBar : TextureProgressBar = $HUD/ShieldPointBar
 #Menu Controllers
 @onready var GameMenu = $HUD/GameMenu
+@onready var GameOverScreen = $HUD/GameOverScreen
 @onready var IsPaused : bool = false
 @onready var Interaction_Controller = InteractionController
 @onready var Dialogue_Controller : DialogueController = $DialogueController
@@ -129,12 +132,20 @@ func _Shoot():
 			Last_Shoot_Time = Time.get_unix_time_from_system()
 	
 			var proj = Projectile_Entity.instantiate()
+			var shot_fx = Gun_FX.instantiate()
 			get_tree().root.add_child(proj)
+			get_tree().root.add_child(shot_fx)
 			proj.global_position = Muzzle.global_position
+			shot_fx.global_position = Muzzle.global_position
+			if shot_fx is GPUParticles2D or shot_fx is CPUParticles2D:
+				shot_fx.emitting = true
 			proj.rotation = Weapon_Origin.rotation * randf_range(Fire_Degree_Offset_Max, Fire_Degree_Offset_Min)
 			proj.Owner_Character = self
 			Audio_Player.stream = Shoot_Audio
+			Audio_Player.pitch_scale = randf_range(0.7, 1.3)
 			Audio_Player.play()
+			if GameManager.camera:
+				GameManager.camera.screen_shake(2,0.2)
 		
 		Bullet_Amount -= 1
 		print(Bullet_Amount)
@@ -180,6 +191,9 @@ func _Toggle_Game_Menu():
 		GameMenu.show()
 		HitPointBar.hide()
 		ShieldPointBar.hide()
+		Can_Move = false
+		Can_Use = false
+		Can_Take_Damage = false
 		get_tree().paused
 		print("paused")
 	else: #Turns it off
@@ -187,4 +201,7 @@ func _Toggle_Game_Menu():
 		GameMenu.hide()
 		HitPointBar.show()
 		ShieldPointBar.show()
+		Can_Move = true
+		Can_Use = true
+		Can_Take_Damage = true
 		print("unpaused")

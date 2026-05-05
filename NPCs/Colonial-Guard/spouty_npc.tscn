@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://boc6rjx864810"]
+
+[ext_resource type="Script" uid="uid://h3k45enufjkk" path="res://Dialogue/Dialogue_NPC.gd" id="1_j62av"]
+[ext_resource type="Resource" uid="uid://ds6b2dgowmpj7" path="res://Dialogue/NPC_Dialogue/Colonial-Guard/First-Meeting.tres" id="2_4mrrq"]
+[ext_resource type="Texture2D" uid="uid://djo8yf7t4cjd3" path="res://Textures/NPC/Generics/PROTO-colonial-guard.png" id="3_0rvea"]
+[ext_resource type="Script" uid="uid://kqasec2dkise" path="res://Scripts/Generics/Generic_Interactable.gd" id="4_71j47"]
+[ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="5_kc2eo"]
+[ext_resource type="Resource" uid="uid://cirukiglf4cpq" path="res://_SpoutyDialogStuff/Dialogue/testdialouge.tres" id="6_fbwpf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bcd5v"]
+radius = 21.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30gpg"]
+
+[node name="NpcTalk" type="CharacterBody2D" unique_id=1973425761]
+
+[node name="DialogueManager" type="Node2D" parent="." unique_id=1134248592]
+script = ExtResource("1_j62av")
+dialogue = ExtResource("2_4mrrq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=979863567]
+texture = ExtResource("3_0rvea")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=863493751]
+script = ExtResource("4_71j47")
+prompt = "Talk"
+single_use = true
+
+[node name="InteractRange" type="CollisionShape2D" parent="InteractionArea" unique_id=2112734459]
+shape = SubResource("CircleShape2D_bcd5v")
+
+[node name="Collider_Shape" type="CollisionShape2D" parent="." unique_id=462520784]
+shape = SubResource("CapsuleShape2D_30gpg")
+
+[node name="PromptLocation" type="Marker2D" parent="." unique_id=673155422]
+position = Vector2(0, 20)
+
+[node name="DialogPlayer" type="Node" parent="." unique_id=1709836501]
+script = ExtResource("5_kc2eo")
+_dialog_data_uid = 5370679166067097262
+_dialog_file_name = "testdialouge"
+_dialog_data = ExtResource("6_fbwpf")
+_start_id = "TESTING"
+_play_on_ready = false
+_destroy_on_end = true
+_print_debug = false
+metadata/_custom_type_script = "uid://1mxdpoyob13n"

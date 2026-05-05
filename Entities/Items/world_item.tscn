@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://oxq4kis2tao0" path="res://Scripts/Items/World_Item.gd" id="1_0ayrr"]
 [ext_resource type="Texture2D" uid="uid://bf146kj5fqd4j" path="res://Textures/Items/Extractables/rmc_weya_water.png" id="2_0oyto"]
+[ext_resource type="AudioStream" uid="uid://cs4rgvxcejtc6" path="res://Audio/PROTO_Collection_Noise.wav" id="2_q3dbo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkv7o"]
 radius = 4.1231055
@@ -10,6 +11,7 @@ radius = 4.1231055
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_0ayrr")
+pickup_sound = ExtResource("2_q3dbo")
 prompt = "Pick up "
 single_use = true
 
@@ -19,5 +21,7 @@ texture = ExtResource("2_0oyto")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622292450]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_qkv7o")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=956093712]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -41,6 +41,7 @@ func _dodge():
 	DodgeRechargeTimer.stop() # <- see above
 	
 	player.Can_Take_Damage = false
+	player.Is_Dodging = true
 	player.Current_Movement_Speed = player.Base_Movement_Speed * player.Dodge_Speed_Multi
 	
 	InDodge_ProgressBar.show()
@@ -49,6 +50,7 @@ func _dodge():
 func _dodge_recharge():
 	player.Current_Movement_Speed = player.Base_Movement_Speed
 	player.Can_Take_Damage = true
+	player.Is_Dodging = false
 	InDodge_ProgressBar.hide()
 	
 	DodgeRecharge_ProgressBar.show()
